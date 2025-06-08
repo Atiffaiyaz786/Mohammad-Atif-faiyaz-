@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { GameReviews } from "@/components/game-reviews"
 import { GameRequirements } from "@/components/game-requirements"
+import { DownloadHandler } from "@/components/download-handler"
 import { ShoppingCart, Heart, Share2 } from "lucide-react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
@@ -149,8 +150,13 @@ export default function GamePage({ params }: GamePageProps) {
               )}
             </div>
 
+            {/* Download Handler Component */}
+            <div className="mb-6">
+              <DownloadHandler gameId={game.id} gameTitle={game.title} gameType="pc" price={game.price} />
+            </div>
+
             <div className="flex gap-2 mb-8">
-              <Button className="flex-1 bg-purple-600 hover:bg-purple-700 text-white">
+              <Button variant="outline" className="flex-1 border-purple-600 text-purple-500 hover:bg-purple-950">
                 <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
               </Button>
               <Button variant="outline" className="border-purple-600 text-purple-500 hover:bg-purple-950">

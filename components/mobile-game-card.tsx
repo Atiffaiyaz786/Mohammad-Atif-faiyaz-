@@ -1,3 +1,8 @@
+"use client"
+
+import type React from "react"
+
+import { useState } from "react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -15,6 +20,23 @@ interface MobileGameCardProps {
 }
 
 export function MobileGameCard({ id, title, price, image, category, downloads, rating, size }: MobileGameCardProps) {
+  const [isDownloading, setIsDownloading] = useState(false)
+
+  const handleQuickDownload = async (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    setIsDownloading(true)
+
+    // Simulate download process
+    setTimeout(() => {
+      // Open Google Play Store link
+      const playStoreUrl = `https://play.google.com/store/apps/details?id=com.playjunction.${id}`
+      window.open(playStoreUrl, "_blank")
+      setIsDownloading(false)
+    }, 1000)
+  }
+
   return (
     <div className="group relative overflow-hidden rounded-lg bg-gray-800 transition-all hover:shadow-xl hover:shadow-purple-500/20">
       <Link href={`/mobile-games/${id}`} className="block">
@@ -45,9 +67,18 @@ export function MobileGameCard({ id, title, price, image, category, downloads, r
         </div>
         <div className="flex items-center justify-between">
           <span className="text-xs text-gray-400">{size}</span>
-          <Button size="sm" className="h-7 text-xs bg-purple-600 hover:bg-purple-700">
-            <Download className="h-3 w-3 mr-1" />
-            Install
+          <Button
+            size="sm"
+            className="h-7 text-xs bg-green-600 hover:bg-green-700"
+            onClick={handleQuickDownload}
+            disabled={isDownloading}
+          >
+            {isDownloading ? (
+              <div className="w-3 h-3 border border-white border-t-transparent rounded-full animate-spin mr-1"></div>
+            ) : (
+              <Download className="h-3 w-3 mr-1" />
+            )}
+            {isDownloading ? "Opening..." : "Install"}
           </Button>
         </div>
       </div>

@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Download, Star, Users, Smartphone } from "lucide-react"
+import { DownloadHandler } from "@/components/download-handler"
+import { Star, Users, Smartphone } from "lucide-react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { getMobileGameById } from "@/lib/mobile-games-database"
@@ -123,10 +123,15 @@ export default function MobileGamePage({ params }: MobileGamePageProps) {
               </div>
             </div>
 
-            <div className="flex gap-2 mb-8">
-              <Button className="flex-1 bg-green-600 hover:bg-green-700 text-white">
-                <Download className="mr-2 h-4 w-4" /> Download Free
-              </Button>
+            {/* Download Handler Component */}
+            <div className="mb-8">
+              <DownloadHandler
+                gameId={game.id}
+                gameTitle={game.title}
+                gameType="mobile"
+                price={0}
+                platforms={game.platform}
+              />
             </div>
 
             <div className="space-y-4 mb-8">
