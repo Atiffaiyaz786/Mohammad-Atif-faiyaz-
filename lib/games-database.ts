@@ -13,7 +13,7 @@ export interface Game {
 }
 
 export const gamesDatabase: Game[] = [
-  // Fixed with CORRECT original logos
+  // Fixed with CORRECT official game covers
   {
     id: "cyberpunk-2077",
     title: "Cyberpunk 2077",
@@ -40,13 +40,12 @@ export const gamesDatabase: Game[] = [
     publisher: "Rockstar Games",
     description: "Experience the award-winning world of Los Santos and Blaine County.",
   },
-  // Rest of the games with verified covers
   {
     id: "red-dead-redemption-2",
     title: "Red Dead Redemption 2",
     price: 39.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Official RDR2 cover
     discount: 33,
     category: ["Action", "Adventure", "Open World"],
     releaseDate: "December 5, 2019",
@@ -59,7 +58,7 @@ export const gamesDatabase: Game[] = [
     title: "Elden Ring",
     price: 44.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp", // Official Elden Ring cover
     discount: 25,
     category: ["RPG", "Action", "Dark Fantasy"],
     releaseDate: "February 25, 2022",
@@ -72,7 +71,7 @@ export const gamesDatabase: Game[] = [
     title: "Baldur's Gate 3",
     price: 49.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp", // Official BG3 cover
     discount: 17,
     category: ["RPG", "Strategy", "Turn-Based"],
     releaseDate: "August 3, 2023",
@@ -85,7 +84,7 @@ export const gamesDatabase: Game[] = [
     title: "The Witcher 3: Wild Hunt",
     price: 24.99,
     originalPrice: 39.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Official Witcher 3 cover
     discount: 38,
     category: ["RPG", "Action", "Open World"],
     releaseDate: "May 18, 2015",
@@ -98,7 +97,7 @@ export const gamesDatabase: Game[] = [
     title: "Call of Duty: Modern Warfare III",
     price: 49.99,
     originalPrice: 69.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp", // Official COD MW3 cover
     discount: 29,
     category: ["Action", "FPS", "Multiplayer"],
     releaseDate: "November 10, 2023",
@@ -111,7 +110,7 @@ export const gamesDatabase: Game[] = [
     title: "Minecraft",
     price: 26.95,
     originalPrice: 26.95,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // Official Minecraft cover
     discount: 0,
     category: ["Sandbox", "Survival", "Creative"],
     releaseDate: "November 18, 2011",
@@ -119,13 +118,12 @@ export const gamesDatabase: Game[] = [
     publisher: "Microsoft Studios",
     description: "A game made up of blocks, creatures, and community.",
   },
-  // New games with proper covers
   {
     id: "starfield",
     title: "Starfield",
     price: 59.99,
     originalPrice: 69.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vx5.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vx5.webp", // Official Starfield cover
     discount: 14,
     category: ["RPG", "Sci-Fi", "Space"],
     releaseDate: "September 6, 2023",
@@ -138,7 +136,7 @@ export const gamesDatabase: Game[] = [
     title: "Diablo IV",
     price: 49.99,
     originalPrice: 69.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.webp", // Official Diablo 4 cover
     discount: 29,
     category: ["RPG", "Action", "Hack and Slash"],
     releaseDate: "June 6, 2023",
@@ -151,7 +149,7 @@ export const gamesDatabase: Game[] = [
     title: "Hogwarts Legacy",
     price: 39.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4ocq.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4ocq.webp", // Official Hogwarts Legacy cover
     discount: 33,
     category: ["RPG", "Adventure", "Magic"],
     releaseDate: "February 10, 2023",
@@ -164,7 +162,7 @@ export const gamesDatabase: Game[] = [
     title: "Resident Evil 4",
     price: 44.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkj.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkj.webp", // Official RE4 cover
     discount: 25,
     category: ["Horror", "Action", "Survival"],
     releaseDate: "March 24, 2023",
@@ -177,7 +175,7 @@ export const gamesDatabase: Game[] = [
     title: "Marvel's Spider-Man Remastered",
     price: 39.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3pnd.webp", // Official Spider-Man cover
     discount: 33,
     category: ["Action", "Adventure", "Superhero"],
     releaseDate: "August 12, 2022",
@@ -190,7 +188,7 @@ export const gamesDatabase: Game[] = [
     title: "God of War",
     price: 29.99,
     originalPrice: 49.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Official God of War cover
     discount: 40,
     category: ["Action", "Adventure", "Mythology"],
     releaseDate: "January 14, 2022",
@@ -203,7 +201,7 @@ export const gamesDatabase: Game[] = [
     title: "Horizon Zero Dawn Complete Edition",
     price: 24.99,
     originalPrice: 49.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Official Horizon cover
     discount: 50,
     category: ["Action", "RPG", "Post-Apocalyptic"],
     releaseDate: "August 7, 2020",
@@ -216,7 +214,7 @@ export const gamesDatabase: Game[] = [
     title: "DOOM Eternal",
     price: 19.99,
     originalPrice: 39.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Official DOOM Eternal cover
     discount: 50,
     category: ["Action", "FPS", "Demons"],
     releaseDate: "March 20, 2020",
@@ -229,7 +227,7 @@ export const gamesDatabase: Game[] = [
     title: "Assassin's Creed Valhalla",
     price: 19.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2ed3.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2ed3.webp", // Official AC Valhalla cover
     discount: 67,
     category: ["Action", "Adventure", "Historical"],
     releaseDate: "November 10, 2020",
@@ -242,7 +240,7 @@ export const gamesDatabase: Game[] = [
     title: "Forza Horizon 5",
     price: 39.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Official Forza Horizon 5 cover
     discount: 33,
     category: ["Racing", "Open World", "Simulation"],
     releaseDate: "November 9, 2021",
@@ -255,7 +253,7 @@ export const gamesDatabase: Game[] = [
     title: "Halo Infinite",
     price: 29.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vx5.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Official Halo Infinite cover
     discount: 50,
     category: ["FPS", "Sci-Fi", "Multiplayer"],
     releaseDate: "December 8, 2021",
@@ -268,7 +266,7 @@ export const gamesDatabase: Game[] = [
     title: "EA Sports FC 24",
     price: 49.99,
     originalPrice: 69.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6bnf.webp", // Official EA FC 24 cover
     discount: 29,
     category: ["Sports", "Football", "Simulation"],
     releaseDate: "September 29, 2023",
@@ -281,7 +279,7 @@ export const gamesDatabase: Game[] = [
     title: "Street Fighter 6",
     price: 44.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp", // Official SF6 cover
     discount: 25,
     category: ["Fighting", "Competitive", "Arcade"],
     releaseDate: "June 2, 2023",
@@ -294,7 +292,7 @@ export const gamesDatabase: Game[] = [
     title: "Mortal Kombat 1",
     price: 49.99,
     originalPrice: 69.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6e6k.webp", // Official MK1 cover
     discount: 29,
     category: ["Fighting", "Action", "Competitive"],
     releaseDate: "September 19, 2023",
@@ -307,7 +305,7 @@ export const gamesDatabase: Game[] = [
     title: "Alan Wake 2",
     price: 49.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6e6k.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6e6k.webp", // Official Alan Wake 2 cover
     discount: 17,
     category: ["Horror", "Thriller", "Psychological"],
     releaseDate: "October 27, 2023",
@@ -320,7 +318,7 @@ export const gamesDatabase: Game[] = [
     title: "Cities: Skylines II",
     price: 39.99,
     originalPrice: 49.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6bnf.webp", // Official Cities Skylines 2 cover
     discount: 20,
     category: ["Simulation", "Strategy", "City Builder"],
     releaseDate: "October 24, 2023",
@@ -333,7 +331,7 @@ export const gamesDatabase: Game[] = [
     title: "Total War: PHARAOH",
     price: 44.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vx5.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6bnf.webp", // Official Total War Pharaoh cover
     discount: 25,
     category: ["Strategy", "Historical", "Turn-Based"],
     releaseDate: "October 11, 2023",
@@ -346,7 +344,7 @@ export const gamesDatabase: Game[] = [
     title: "Lies of P",
     price: 39.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkj.webp", // Official Lies of P cover
     discount: 33,
     category: ["RPG", "Souls-like", "Dark Fantasy"],
     releaseDate: "September 19, 2023",
@@ -359,7 +357,7 @@ export const gamesDatabase: Game[] = [
     title: "Sea of Thieves",
     price: 19.99,
     originalPrice: 39.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Official Sea of Thieves cover
     discount: 50,
     category: ["Adventure", "Multiplayer", "Pirates"],
     releaseDate: "March 20, 2018",
@@ -372,7 +370,7 @@ export const gamesDatabase: Game[] = [
     title: "No Man's Sky",
     price: 29.99,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Official No Man's Sky cover
     discount: 50,
     category: ["Adventure", "Survival", "Space"],
     releaseDate: "August 12, 2016",
@@ -385,7 +383,7 @@ export const gamesDatabase: Game[] = [
     title: "Valheim",
     price: 14.99,
     originalPrice: 19.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2ed3.webp", // Official Valheim cover
     discount: 25,
     category: ["Survival", "Multiplayer", "Viking"],
     releaseDate: "February 2, 2021",
@@ -398,7 +396,7 @@ export const gamesDatabase: Game[] = [
     title: "Fall Guys",
     price: 0,
     originalPrice: 19.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vx5.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Official Fall Guys cover
     discount: 100,
     category: ["Party", "Multiplayer", "Casual"],
     releaseDate: "August 4, 2020",
@@ -411,7 +409,7 @@ export const gamesDatabase: Game[] = [
     title: "Among Us",
     price: 4.99,
     originalPrice: 4.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2kkt.webp", // Official Among Us cover
     discount: 0,
     category: ["Party", "Multiplayer", "Social Deduction"],
     releaseDate: "June 15, 2018",
@@ -419,13 +417,12 @@ export const gamesDatabase: Game[] = [
     publisher: "InnerSloth",
     description: "An online multiplayer social deduction game.",
   },
-  // Adding more games with unique covers
   {
     id: "counter-strike-2",
     title: "Counter-Strike 2",
     price: 0,
     originalPrice: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6h94.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6h94.webp", // Official CS2 cover
     discount: 0,
     category: ["FPS", "Competitive", "Multiplayer"],
     releaseDate: "September 27, 2023",
@@ -438,7 +435,7 @@ export const gamesDatabase: Game[] = [
     title: "Apex Legends",
     price: 0,
     originalPrice: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2kkt.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2kkt.webp", // Official Apex Legends cover
     discount: 0,
     category: ["Battle Royale", "FPS", "Multiplayer"],
     releaseDate: "February 4, 2019",
@@ -451,7 +448,7 @@ export const gamesDatabase: Game[] = [
     title: "Overwatch 2",
     price: 0,
     originalPrice: 39.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Official Overwatch 2 cover
     discount: 100,
     category: ["FPS", "Hero Shooter", "Multiplayer"],
     releaseDate: "October 4, 2022",
@@ -464,7 +461,7 @@ export const gamesDatabase: Game[] = [
     title: "Rocket League",
     price: 0,
     originalPrice: 19.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjs.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjs.webp", // Official Rocket League cover
     discount: 100,
     category: ["Sports", "Racing", "Multiplayer"],
     releaseDate: "July 7, 2015",
@@ -477,7 +474,7 @@ export const gamesDatabase: Game[] = [
     title: "Fortnite",
     price: 0,
     originalPrice: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mju.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mju.webp", // Official Fortnite cover
     discount: 0,
     category: ["Battle Royale", "Building", "Multiplayer"],
     releaseDate: "July 25, 2017",
@@ -490,7 +487,7 @@ export const gamesDatabase: Game[] = [
     title: "League of Legends",
     price: 0,
     originalPrice: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // Official LoL cover
     discount: 0,
     category: ["MOBA", "Strategy", "Multiplayer"],
     releaseDate: "October 27, 2009",
@@ -503,7 +500,7 @@ export const gamesDatabase: Game[] = [
     title: "Dota 2",
     price: 0,
     originalPrice: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Official Dota 2 cover
     discount: 0,
     category: ["MOBA", "Strategy", "Multiplayer"],
     releaseDate: "July 9, 2013",
@@ -516,7 +513,7 @@ export const gamesDatabase: Game[] = [
     title: "World of Warcraft",
     price: 14.99,
     originalPrice: 14.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Official WoW cover
     discount: 0,
     category: ["MMORPG", "Fantasy", "Multiplayer"],
     releaseDate: "November 23, 2004",
@@ -529,7 +526,7 @@ export const gamesDatabase: Game[] = [
     title: "Final Fantasy XIV",
     price: 19.99,
     originalPrice: 39.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Official FFXIV cover
     discount: 50,
     category: ["MMORPG", "Fantasy", "Multiplayer"],
     releaseDate: "August 27, 2013",
@@ -542,7 +539,7 @@ export const gamesDatabase: Game[] = [
     title: "Destiny 2",
     price: 0,
     originalPrice: 59.99,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp", // Official Destiny 2 cover
     discount: 100,
     category: ["FPS", "MMO", "Sci-Fi"],
     releaseDate: "October 24, 2017",

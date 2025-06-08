@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Download, ExternalLink, Key, CheckCircle, AlertCircle, Smartphone } from "lucide-react"
+import { Download, ExternalLink, Key, CheckCircle, AlertCircle, Smartphone, Info } from "lucide-react"
 
 interface DownloadHandlerProps {
   gameId: string
@@ -19,6 +19,7 @@ export function DownloadHandler({ gameId, gameTitle, gameType, price, platforms 
   const [gameKey, setGameKey] = useState("")
   const [downloadLinks, setDownloadLinks] = useState<Record<string, string>>({})
   const [isLoading, setIsLoading] = useState(false)
+  const [showDemoNotice, setShowDemoNotice] = useState(false)
 
   const generateGameKey = () => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -30,18 +31,70 @@ export function DownloadHandler({ gameId, gameTitle, gameType, price, platforms 
     return result
   }
 
+  // Use real app IDs for popular games to avoid Play Store errors
+  const getRealAppLinks = (gameId: string) => {
+    // Map of our game IDs to real app IDs on stores
+    const appIdMap: Record<string, { android?: string; ios?: string }> = {
+      bgmi: {
+        android: "com.pubg.imobile",
+        ios: "id1526436837",
+      },
+      "free-fire": {
+        android: "com.dts.freefireth",
+        ios: "id1300146617",
+      },
+      "cod-mobile": {
+        android: "com.activision.callofduty.shooter",
+        ios: "id1287282214",
+      },
+      "pubg-mobile": {
+        android: "com.tencent.ig",
+        ios: "id1330123889",
+      },
+      "candy-crush-saga": {
+        android: "com.king.candycrushsaga",
+        ios: "id553834731",
+      },
+      "subway-surfers": {
+        android: "com.kiloo.subwaysurf",
+        ios: "id542609961",
+      },
+      "clash-of-clans": {
+        android: "com.supercell.clashofclans",
+        ios: "id529479190",
+      },
+      "among-us-mobile": {
+        android: "com.innersloth.spacemafia",
+        ios: "id1351168404",
+      },
+      // Default for games not in our map
+      default: {
+        android: "com.playjunction.games",
+        ios: "id1234567890",
+      },
+    }
+
+    const appIds = appIdMap[gameId] || appIdMap["default"]
+
+    return {
+      Android: appIds.android
+        ? `https://play.google.com/store/apps/details?id=${appIds.android}`
+        : `https://play.google.com/store/search?q=${encodeURIComponent(gameTitle)}&c=apps`,
+      iOS: appIds.ios
+        ? `https://apps.apple.com/app/id${appIds.ios}`
+        : `https://apps.apple.com/search?term=${encodeURIComponent(gameTitle)}&entity=software`,
+      APK: `#demo-apk-download`,
+    }
+  }
+
   const generateDownloadLinks = () => {
     if (gameType === "mobile") {
-      return {
-        Android: `https://play.google.com/store/apps/details?id=com.playjunction.${gameId}`,
-        iOS: `https://apps.apple.com/app/id${Math.floor(Math.random() * 1000000000)}`,
-        APK: `https://cdn.playjunction.com/mobile/${gameId}/latest.apk`,
-      }
+      return getRealAppLinks(gameId)
     } else {
       return {
-        Steam: `steam://install/${Math.floor(Math.random() * 1000000)}`,
-        "Direct Download": `https://cdn.playjunction.com/games/${gameId}/installer.exe`,
-        Torrent: `https://cdn.playjunction.com/games/${gameId}/game.torrent`,
+        Steam: `steam://run/1091500`, // Cyberpunk 2077 Steam ID as example
+        "Direct Download": `#demo-download`,
+        Torrent: `#demo-torrent`,
       }
     }
   }
@@ -76,10 +129,8 @@ export function DownloadHandler({ gameId, gameTitle, gameType, price, platforms 
       setDownloadLinks(links)
       setDownloadComplete(true)
 
-      // For mobile games, automatically redirect to store
-      if (gameType === "mobile" && platforms.includes("Android")) {
-        window.open(links.Android, "_blank")
-      }
+      // Show demo notice
+      setShowDemoNotice(true)
     } catch (error) {
       console.error("Download failed:", error)
     } finally {
@@ -89,16 +140,14 @@ export function DownloadHandler({ gameId, gameTitle, gameType, price, platforms 
   }
 
   const handleDirectDownload = (platform: string, url: string) => {
-    // Create a temporary download link
-    const link = document.createElement("a")
-    link.href = url
-    link.download = `${gameTitle}-${platform}.${gameType === "mobile" ? "apk" : "exe"}`
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+    // For demo purposes, show an alert instead of actual download
+    if (url.startsWith("#demo")) {
+      alert(`This is a demo. In a real app, this would download ${gameTitle} for ${platform}.`)
+      return
+    }
 
-    // Show download started notification
-    alert(`Download started for ${gameTitle} (${platform})`)
+    // For real links, open in new tab
+    window.open(url, "_blank")
   }
 
   if (downloadComplete) {
@@ -114,6 +163,21 @@ export function DownloadHandler({ gameId, gameTitle, gameType, price, platforms 
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
+          {showDemoNotice && (
+            <div className="bg-blue-900/20 border border-blue-800 rounded-lg p-4 mb-4">
+              <div className="flex items-start gap-2">
+                <Info className="h-4 w-4 text-blue-400 mt-0.5" />
+                <div className="text-sm">
+                  <p className="text-blue-400 font-medium">Demo Notice:</p>
+                  <p className="text-gray-300 mt-1">
+                    This is a demonstration website. The download links will take you to real app stores, but some links
+                    may not work as they're for demonstration purposes only.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {gameKey && (
             <div className="bg-gray-700 p-4 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
@@ -141,9 +205,9 @@ export function DownloadHandler({ gameId, gameTitle, gameType, price, platforms 
                       {platform === "Steam" && "Launch Steam client"}
                       {platform === "Android" && "Google Play Store"}
                       {platform === "iOS" && "App Store"}
-                      {platform === "APK" && "Direct APK download"}
-                      {platform === "Direct Download" && "Standalone installer"}
-                      {platform === "Torrent" && "P2P download"}
+                      {platform === "APK" && "Direct APK download (Demo)"}
+                      {platform === "Direct Download" && "Standalone installer (Demo)"}
+                      {platform === "Torrent" && "P2P download (Demo)"}
                     </div>
                   </div>
                 </div>

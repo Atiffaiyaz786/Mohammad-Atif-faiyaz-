@@ -6,7 +6,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Download, Star } from "lucide-react"
+import { Download, Star, AlertCircle } from "lucide-react"
 
 interface MobileGameCardProps {
   id: string
@@ -21,6 +21,19 @@ interface MobileGameCardProps {
 
 export function MobileGameCard({ id, title, price, image, category, downloads, rating, size }: MobileGameCardProps) {
   const [isDownloading, setIsDownloading] = useState(false)
+  const [showDemoAlert, setShowDemoAlert] = useState(false)
+
+  // Map of our game IDs to real app IDs on Play Store
+  const appIdMap: Record<string, string> = {
+    bgmi: "com.pubg.imobile",
+    "free-fire": "com.dts.freefireth",
+    "cod-mobile": "com.activision.callofduty.shooter",
+    "pubg-mobile": "com.tencent.ig",
+    "candy-crush-saga": "com.king.candycrushsaga",
+    "subway-surfers": "com.kiloo.subwaysurf",
+    "clash-of-clans": "com.supercell.clashofclans",
+    "among-us-mobile": "com.innersloth.spacemafia",
+  }
 
   const handleQuickDownload = async (e: React.MouseEvent) => {
     e.preventDefault()
@@ -30,10 +43,18 @@ export function MobileGameCard({ id, title, price, image, category, downloads, r
 
     // Simulate download process
     setTimeout(() => {
-      // Open Google Play Store link
-      const playStoreUrl = `https://play.google.com/store/apps/details?id=com.playjunction.${id}`
+      // Get real app ID or use search
+      const appId = appIdMap[id]
+      const playStoreUrl = appId
+        ? `https://play.google.com/store/apps/details?id=${appId}`
+        : `https://play.google.com/store/search?q=${encodeURIComponent(title)}&c=apps`
+
       window.open(playStoreUrl, "_blank")
       setIsDownloading(false)
+      setShowDemoAlert(true)
+
+      // Hide demo alert after 5 seconds
+      setTimeout(() => setShowDemoAlert(false), 5000)
     }, 1000)
   }
 
@@ -49,6 +70,14 @@ export function MobileGameCard({ id, title, price, image, category, downloads, r
         </div>
       </Link>
       <Badge className="absolute top-2 right-2 bg-green-600 text-white">FREE</Badge>
+
+      {showDemoAlert && (
+        <div className="absolute top-2 left-2 right-2 bg-blue-900/90 text-white text-xs p-2 rounded-md flex items-center gap-1">
+          <AlertCircle className="h-3 w-3" />
+          <span>Demo: Opening real app store</span>
+        </div>
+      )}
+
       <div className="p-4">
         <Link href={`/mobile-games/${id}`} className="block">
           <h3 className="font-medium text-white group-hover:text-purple-400 transition-colors line-clamp-1">{title}</h3>

@@ -5,6 +5,7 @@ import { Star, Users, Smartphone } from "lucide-react"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import { getMobileGameById } from "@/lib/mobile-games-database"
+import { DemoNotice } from "@/components/demo-notice"
 
 interface MobileGamePageProps {
   params: {
@@ -83,6 +84,7 @@ export default function MobileGamePage({ params }: MobileGamePageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <div className="container mx-auto px-4 py-8">
+        <DemoNotice className="mb-6" />
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left column - Images */}
           <div className="w-full lg:w-2/3">

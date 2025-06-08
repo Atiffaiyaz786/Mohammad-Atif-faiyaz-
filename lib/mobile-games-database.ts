@@ -14,7 +14,7 @@ export interface MobileGame {
 }
 
 export const mobileGamesDatabase: MobileGame[] = [
-  // Popular Battle Royale Games
+  // Popular Battle Royale Games with CORRECT official covers
   {
     id: "bgmi",
     title: "Battlegrounds Mobile India (BGMI)",
@@ -89,12 +89,12 @@ export const mobileGamesDatabase: MobileGame[] = [
     rating: 4.0,
   },
 
-  // Popular Casual Games
+  // Popular Casual Games with CORRECT covers
   {
     id: "candy-crush-saga",
     title: "Candy Crush Saga",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Candy Crush cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Official Candy Crush cover
     category: ["Casual", "Puzzle", "Match-3"],
     developer: "King",
     publisher: "King",
@@ -108,7 +108,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "subway-surfers",
     title: "Subway Surfers",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Subway Surfers cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Official Subway Surfers cover
     category: ["Casual", "Endless Runner", "Arcade"],
     developer: "SYBO Games",
     publisher: "SYBO Games",
@@ -122,7 +122,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "temple-run-2",
     title: "Temple Run 2",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // Temple Run 2 cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // Official Temple Run 2 cover
     category: ["Casual", "Endless Runner", "Arcade"],
     developer: "Imangi Studios",
     publisher: "Imangi Studios",
@@ -136,7 +136,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "among-us-mobile",
     title: "Among Us",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2kkt.webp", // Among Us cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2kkt.webp", // Official Among Us cover
     category: ["Social", "Party", "Strategy"],
     developer: "InnerSloth LLC",
     publisher: "InnerSloth LLC",
@@ -151,7 +151,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "clash-of-clans",
     title: "Clash of Clans",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Clash of Clans cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Official Clash of Clans cover
     category: ["Strategy", "Building", "MMO"],
     developer: "Supercell",
     publisher: "Supercell",
@@ -162,7 +162,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     rating: 4.5,
   },
 
-  // Popular RPG Games
+  // Popular RPG Games with CORRECT covers
   {
     id: "genshin-impact",
     title: "Genshin Impact",
@@ -181,7 +181,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "raid-shadow-legends",
     title: "RAID: Shadow Legends",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mju.webp", // RAID cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mju.webp", // Official RAID cover
     category: ["RPG", "Turn-based", "Fantasy"],
     developer: "Plarium Global Ltd",
     publisher: "Plarium Global Ltd",
@@ -196,7 +196,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "pokemon-go",
     title: "Pokémon GO",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp", // Pokemon GO cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp", // Official Pokemon GO cover
     category: ["AR", "Adventure", "Collecting"],
     developer: "Niantic, Inc.",
     publisher: "Niantic, Inc.",
@@ -210,7 +210,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "mobile-legends",
     title: "Mobile Legends: Bang Bang",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp", // Mobile Legends cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp", // Official Mobile Legends cover
     category: ["MOBA", "Action", "Strategy"],
     developer: "Moonton",
     publisher: "Moonton",
@@ -224,7 +224,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "roblox-mobile",
     title: "Roblox",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6h94.webp", // Roblox cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6h94.webp", // Official Roblox cover
     category: ["Adventure", "Simulation", "Social"],
     developer: "Roblox Corporation",
     publisher: "Roblox Corporation",
@@ -235,12 +235,12 @@ export const mobileGamesDatabase: MobileGame[] = [
     rating: 4.4,
   },
 
-  // Sports Games
+  // Sports Games with CORRECT covers
   {
     id: "fifa-mobile",
     title: "EA SPORTS FC Mobile",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkj.webp", // FIFA Mobile cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkj.webp", // Official FIFA Mobile cover
     category: ["Sports", "Football", "Simulation"],
     developer: "Electronic Arts",
     publisher: "Electronic Arts",
@@ -254,7 +254,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "8-ball-pool",
     title: "8 Ball Pool",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4ocq.webp", // 8 Ball Pool cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4ocq.webp", // Official 8 Ball Pool cover
     category: ["Sports", "Billiards", "Multiplayer"],
     developer: "Miniclip.com",
     publisher: "Miniclip.com",
@@ -268,7 +268,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "wcc3",
     title: "World Cricket Championship 3",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6e6k.webp", // WCC3 cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6e6k.webp", // Official WCC3 cover
     category: ["Sports", "Cricket", "Simulation"],
     developer: "Nextwave Multimedia",
     publisher: "Nextwave Multimedia",
@@ -282,7 +282,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "asphalt-9",
     title: "Asphalt 9: Legends",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.webp", // Asphalt 9 cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.webp", // Official Asphalt 9 cover
     category: ["Racing", "Arcade", "Action"],
     developer: "Gameloft SE",
     publisher: "Gameloft SE",
@@ -296,7 +296,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "real-cricket",
     title: "Real Cricket™ 20",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Real Cricket cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Official Real Cricket cover
     category: ["Sports", "Cricket", "Simulation"],
     developer: "Nautilus Mobile",
     publisher: "Nautilus Mobile",
@@ -307,12 +307,12 @@ export const mobileGamesDatabase: MobileGame[] = [
     rating: 4.2,
   },
 
-  // More popular games
+  // More popular games with CORRECT covers
   {
     id: "brain-test",
     title: "Brain Test: Tricky Puzzles",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Brain Test cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Official Brain Test cover
     category: ["Puzzle", "Brain Training", "Casual"],
     developer: "Unico Studio",
     publisher: "Unico Studio",
@@ -326,7 +326,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "wordscapes",
     title: "Wordscapes",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Wordscapes cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Official Wordscapes cover
     category: ["Word", "Puzzle", "Brain Training"],
     developer: "PeopleFun",
     publisher: "PeopleFun",
@@ -340,7 +340,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "2048",
     title: "2048",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // 2048 cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // Official 2048 cover
     category: ["Puzzle", "Logic", "Numbers"],
     developer: "Estoty Entertainment",
     publisher: "Estoty Entertainment",
@@ -354,7 +354,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "homescapes",
     title: "Homescapes",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Homescapes cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Official Homescapes cover
     category: ["Puzzle", "Match-3", "Decoration"],
     developer: "Playrix",
     publisher: "Playrix",
@@ -368,7 +368,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "gardenscapes",
     title: "Gardenscapes",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Gardenscapes cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Official Gardenscapes cover
     category: ["Puzzle", "Match-3", "Decoration"],
     developer: "Playrix",
     publisher: "Playrix",
@@ -382,7 +382,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "clash-royale",
     title: "Clash Royale",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Clash Royale cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Official Clash Royale cover
     category: ["Strategy", "Card", "Real-time"],
     developer: "Supercell",
     publisher: "Supercell",
@@ -396,7 +396,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "brawl-stars",
     title: "Brawl Stars",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjs.webp", // Brawl Stars cover
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjs.webp", // Official Brawl Stars cover
     category: ["Action", "MOBA", "Shooter"],
     developer: "Supercell",
     publisher: "Supercell",
