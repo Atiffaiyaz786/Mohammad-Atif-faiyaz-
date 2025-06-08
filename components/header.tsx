@@ -76,14 +76,14 @@ export function Header() {
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-gray-900 text-white">
                     {[
-                      { title: "Action", href: "/category/action" },
-                      { title: "Adventure", href: "/category/adventure" },
-                      { title: "RPG", href: "/category/rpg" },
-                      { title: "Strategy", href: "/category/strategy" },
-                      { title: "Simulation", href: "/category/simulation" },
-                      { title: "Sports", href: "/category/sports" },
-                      { title: "Racing", href: "/category/racing" },
-                      { title: "Indie", href: "/category/indie" },
+                      { title: "Action", href: "/games?category=action" },
+                      { title: "Adventure", href: "/games?category=adventure" },
+                      { title: "RPG", href: "/games?category=rpg" },
+                      { title: "Strategy", href: "/games?category=strategy" },
+                      { title: "Simulation", href: "/games?category=simulation" },
+                      { title: "Sports", href: "/games?category=sports" },
+                      { title: "Racing", href: "/games?category=racing" },
+                      { title: "Indie", href: "/games?category=indie" },
                     ].map((item) => (
                       <li key={item.title}>
                         <NavigationMenuLink asChild>
@@ -120,6 +120,18 @@ export function Header() {
                     )}
                   >
                     New Releases
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/coming-soon" legacyBehavior passHref>
+                  <NavigationMenuLink
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "bg-transparent text-white hover:bg-gray-800 hover:text-purple-400",
+                    )}
+                  >
+                    Coming Soon
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>

@@ -57,7 +57,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/gift-cards" className="text-gray-400 hover:text-purple-500">
+                <Link href="/games" className="text-gray-400 hover:text-purple-500">
                   Gift Cards
                 </Link>
               </li>
@@ -68,27 +68,27 @@ export function Footer() {
             <h3 className="text-white font-medium mb-4">Customer Service</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/help" className="text-gray-400 hover:text-purple-500">
+                <Link href="/account" className="text-gray-400 hover:text-purple-500">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-purple-500">
+                <Link href="/account" className="text-gray-400 hover:text-purple-500">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-gray-400 hover:text-purple-500">
+                <Link href="/account" className="text-gray-400 hover:text-purple-500">
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="text-gray-400 hover:text-purple-500">
+                <Link href="/account" className="text-gray-400 hover:text-purple-500">
                   Returns Policy
                 </Link>
               </li>
               <li>
-                <Link href="/track-order" className="text-gray-400 hover:text-purple-500">
+                <Link href="/account" className="text-gray-400 hover:text-purple-500">
                   Track Your Order
                 </Link>
               </li>
@@ -120,13 +120,13 @@ export function Footer() {
               &copy; {new Date().getFullYear()} PlayJunction. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <Link href="/privacy" className="text-gray-500 hover:text-purple-500 text-sm">
+              <Link href="/account" className="text-gray-500 hover:text-purple-500 text-sm">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-500 hover:text-purple-500 text-sm">
+              <Link href="/account" className="text-gray-500 hover:text-purple-500 text-sm">
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="text-gray-500 hover:text-purple-500 text-sm">
+              <Link href="/account" className="text-gray-500 hover:text-purple-500 text-sm">
                 Cookie Policy
               </Link>
             </div>
