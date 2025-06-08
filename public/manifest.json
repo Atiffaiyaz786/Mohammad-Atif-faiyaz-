@@ -1,0 +1,27 @@
+{
+  "name": "PlayJunction - PC Games Store",
+  "short_name": "PlayJunction",
+  "description": "Premium PC games at affordable prices",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#7c3aed",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["games", "entertainment", "shopping"],
+  "lang": "en",
+  "dir": "ltr"
+}
