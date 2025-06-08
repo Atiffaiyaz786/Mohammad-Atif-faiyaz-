@@ -9,6 +9,7 @@ import { Separator } from "@/components/ui/separator"
 import { PaymentMethods } from "@/components/payment-methods"
 import { PriceDisplay } from "@/components/price-display"
 import { useCurrency } from "@/hooks/use-currency"
+import { getBillingInfo, calculateTax, formatTaxDisplay } from "@/lib/billing"
 import { ArrowLeft, ShoppingCart } from "lucide-react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -39,17 +40,19 @@ export default function CheckoutPage() {
     firstName: "",
     lastName: "",
     email: "",
-    country: "",
+    country: country,
     address: "",
     city: "",
     postalCode: "",
+    vatNumber: "",
   })
 
   const [paymentCompleted, setPaymentCompleted] = useState(false)
   const [orderDetails, setOrderDetails] = useState<any>(null)
 
+  const billingData = getBillingInfo(billingInfo.country || country)
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const tax = subtotal * (country === "IN" ? 0.18 : 0.08) // 18% GST for India, 8% for others
+  const tax = calculateTax(subtotal, billingInfo.country || country)
   const total = subtotal + tax
 
   const handlePaymentComplete = (paymentData: any) => {
@@ -62,6 +65,7 @@ export default function CheckoutPage() {
       currency,
       payment: paymentData,
       billingInfo,
+      billingData,
       timestamp: new Date().toISOString(),
     })
     setPaymentCompleted(true)
@@ -91,6 +95,10 @@ export default function CheckoutPage() {
               <div className="flex justify-between">
                 <span className="text-gray-400">Payment Method:</span>
                 <span className="text-white">{orderDetails.payment.method}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-gray-400">Billing Country:</span>
+                <span className="text-white">{orderDetails.billingData.name}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-400">Total Amount:</span>
@@ -197,10 +205,64 @@ export default function CheckoutPage() {
                   <option value="IN">India</option>
                   <option value="US">United States</option>
                   <option value="GB">United Kingdom</option>
+                  <option value="DE">Germany</option>
+                  <option value="FR">France</option>
                   <option value="CA">Canada</option>
                   <option value="AU">Australia</option>
+                  <option value="JP">Japan</option>
+                  <option value="BR">Brazil</option>
+                  <option value="MX">Mexico</option>
                 </select>
               </div>
+              <div>
+                <Label htmlFor="address" className="text-white">
+                  Address
+                </Label>
+                <Input
+                  id="address"
+                  value={billingInfo.address}
+                  onChange={(e) => setBillingInfo({ ...billingInfo, address: e.target.value })}
+                  className="bg-gray-700 border-gray-600 text-white"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="city" className="text-white">
+                    City
+                  </Label>
+                  <Input
+                    id="city"
+                    value={billingInfo.city}
+                    onChange={(e) => setBillingInfo({ ...billingInfo, city: e.target.value })}
+                    className="bg-gray-700 border-gray-600 text-white"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="postalCode" className="text-white">
+                    Postal Code
+                  </Label>
+                  <Input
+                    id="postalCode"
+                    value={billingInfo.postalCode}
+                    onChange={(e) => setBillingInfo({ ...billingInfo, postalCode: e.target.value })}
+                    className="bg-gray-700 border-gray-600 text-white"
+                  />
+                </div>
+              </div>
+              {billingData.requiresVAT && (
+                <div>
+                  <Label htmlFor="vatNumber" className="text-white">
+                    VAT Number (Optional)
+                  </Label>
+                  <Input
+                    id="vatNumber"
+                    value={billingInfo.vatNumber}
+                    onChange={(e) => setBillingInfo({ ...billingInfo, vatNumber: e.target.value })}
+                    className="bg-gray-700 border-gray-600 text-white"
+                    placeholder="GB123456789"
+                  />
+                </div>
+              )}
             </CardContent>
           </Card>
 
@@ -251,7 +313,7 @@ export default function CheckoutPage() {
                   <PriceDisplay priceUSD={subtotal} />
                 </div>
                 <div className="flex justify-between text-gray-300">
-                  <span>{country === "IN" ? "GST (18%)" : "Tax (8%)"}</span>
+                  <span>{formatTaxDisplay(billingInfo.country || country)}</span>
                   <PriceDisplay priceUSD={tax} />
                 </div>
                 <Separator className="bg-gray-700" />
@@ -263,6 +325,9 @@ export default function CheckoutPage() {
 
               <div className="bg-gray-700 p-3 rounded-lg">
                 <p className="text-gray-300 text-sm">🔒 Secure payment powered by industry-standard encryption</p>
+                <p className="text-gray-400 text-xs mt-1">
+                  Billing to: {billingData.name} ({billingData.currency})
+                </p>
               </div>
             </CardContent>
           </Card>
