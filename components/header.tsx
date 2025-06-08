@@ -16,6 +16,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Search, ShoppingCart, Menu, User, LogIn } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { CurrencySelector } from "@/components/currency-selector"
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
@@ -147,6 +148,7 @@ export function Header() {
               <span className="sr-only">Search</span>
             </Button>
           )}
+          <CurrencySelector />
           <Link href="/cart">
             <Button variant="ghost" size="icon" className="text-white hover:bg-gray-800 relative">
               <ShoppingCart className="h-5 w-5" />

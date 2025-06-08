@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { Trash2, Plus, Minus } from "lucide-react"
 import Link from "next/link"
+import { PriceDisplay } from "@/components/price-display"
 
 export default function CartPage() {
   const [cartItems, setCartItems] = useState([
@@ -80,8 +81,8 @@ export default function CartPage() {
                 <div className="flex-1">
                   <h3 className="font-medium text-white">{item.title}</h3>
                   <div className="flex items-center gap-2 mt-1">
-                    <span className="text-white font-bold">${item.price}</span>
-                    <span className="text-gray-500 text-sm line-through">${item.originalPrice}</span>
+                    <PriceDisplay priceUSD={item.price} className="text-white font-bold" />
+                    <PriceDisplay priceUSD={item.originalPrice} className="text-gray-500 text-sm line-through" />
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -151,9 +152,11 @@ export default function CartPage() {
 
             <Separator className="bg-gray-700 my-6" />
 
-            <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white text-lg py-3">
-              Proceed to Checkout
-            </Button>
+            <Link href="/checkout">
+              <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white text-lg py-3">
+                Proceed to Checkout
+              </Button>
+            </Link>
 
             <div className="mt-4 text-center">
               <Link href="/games" className="text-purple-400 hover:text-purple-300 text-sm">

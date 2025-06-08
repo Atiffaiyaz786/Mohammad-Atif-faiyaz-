@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ShoppingCart } from "lucide-react"
+import { PriceDisplay } from "@/components/price-display"
 
 interface GameCardProps {
   id: string
@@ -30,10 +31,7 @@ export function GameCard({ id, title, price, originalPrice, image, discount }: G
           <h3 className="font-medium text-white group-hover:text-purple-400 transition-colors line-clamp-1">{title}</h3>
         </Link>
         <div className="mt-2 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-white font-bold">${price}</span>
-            {originalPrice > price && <span className="text-gray-500 text-sm line-through">${originalPrice}</span>}
-          </div>
+          <PriceDisplay priceUSD={price} originalPriceUSD={originalPrice} className="text-white" />
           <Button size="sm" variant="ghost" className="h-8 w-8 p-0 text-white hover:bg-purple-600 hover:text-white">
             <ShoppingCart className="h-4 w-4" />
             <span className="sr-only">Add to cart</span>
