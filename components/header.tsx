@@ -50,6 +50,9 @@ export function Header() {
                   <Link href="/coming-soon" className="text-base hover:text-purple-400">
                     Coming Soon
                   </Link>
+                  <Link href="/mobile-games" className="text-base hover:text-purple-400">
+                    Mobile Games
+                  </Link>
                 </div>
                 <div className="grid gap-2">
                   <Link href="/login">
@@ -132,6 +135,18 @@ export function Header() {
                     )}
                   >
                     Coming Soon
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Link href="/mobile-games" legacyBehavior passHref>
+                  <NavigationMenuLink
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "bg-transparent text-white hover:bg-gray-800 hover:text-purple-400",
+                    )}
+                  >
+                    Mobile Games
                   </NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>

@@ -158,6 +158,108 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Mobile Games Section */}
+        <section className="w-full py-12 md:py-24 bg-gray-800">
+          <div className="container px-4 md:px-6 mx-auto">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
+                  Free Mobile Games
+                </h2>
+                <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  Download the best free mobile games for Android and iOS. All games are completely free to play!
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mt-8">
+              {[
+                {
+                  id: "bgmi",
+                  title: "BGMI",
+                  image:
+                    "https://play-lh.googleusercontent.com/DYEG3HH-M54_2bLw1Sy7VTKnydSfPHGul3Xo25OxDR9yVKkmUkPpR4KyMPRsaQVtgA=w240-h480-rw",
+                  rating: 4.2,
+                  downloads: "100M+",
+                },
+                {
+                  id: "free-fire",
+                  title: "Free Fire MAX",
+                  image:
+                    "https://play-lh.googleusercontent.com/9zc9s-oKQh0TZV7hNPf1rIHfAEAGYb0ivBbb0l9ZYcIbC_SAH3EZCYMZIQdNR2LF6V4=w240-h480-rw",
+                  rating: 4.1,
+                  downloads: "500M+",
+                },
+                {
+                  id: "cod-mobile",
+                  title: "COD Mobile",
+                  image:
+                    "https://play-lh.googleusercontent.com/aOVexQckoyjN2WJp_xy3WuU5kV6NTnLVmIT_9Lj8tpqiTbOQUb1tdIJoLfuCPl0Cvg=w240-h480-rw",
+                  rating: 4.3,
+                  downloads: "100M+",
+                },
+                {
+                  id: "genshin-impact",
+                  title: "Genshin Impact",
+                  image:
+                    "https://play-lh.googleusercontent.com/So91qs_eRRralMxUmwOlnJT4CwKxqG9Pp-KbuQyFsrEgRwDnXvNLOFmhrEh4Esv5UfA=w240-h480-rw",
+                  rating: 4.3,
+                  downloads: "100M+",
+                },
+                {
+                  id: "clash-of-clans",
+                  title: "Clash of Clans",
+                  image:
+                    "https://play-lh.googleusercontent.com/akv2Bdp7i5Vv-sl9FuP3-lCZQFJuFfhZk-Aw-ooMs6PB6x-1znVt9B-fEMHeKH3KtpQm=w240-h480-rw",
+                  rating: 4.5,
+                  downloads: "500M+",
+                },
+                {
+                  id: "subway-surfers",
+                  title: "Subway Surfers",
+                  image:
+                    "https://play-lh.googleusercontent.com/N0UxhBVUmx8s7y3F7Kqre2AcpXyPDKAp8nHjiPPoOONc_sfugHCYMgBQ_J-kpqwEZg=w240-h480-rw",
+                  rating: 4.5,
+                  downloads: "1B+",
+                },
+              ].map((game) => (
+                <Link
+                  key={game.id}
+                  href={`/mobile-games/${game.id}`}
+                  className="group relative overflow-hidden rounded-lg bg-gray-700 transition-all hover:shadow-xl hover:shadow-purple-500/20"
+                >
+                  <div className="aspect-[3/4] w-full overflow-hidden">
+                    <img
+                      src={game.image || "/placeholder.svg"}
+                      alt={game.title}
+                      className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="absolute top-2 right-2 bg-green-600 text-white text-xs font-medium px-2 py-1 rounded-full">
+                    FREE
+                  </div>
+                  <div className="p-3">
+                    <h3 className="text-sm font-medium text-white group-hover:text-purple-400 transition-colors line-clamp-1">
+                      {game.title}
+                    </h3>
+                    <div className="flex items-center gap-1 mt-1">
+                      <span className="text-yellow-400">★</span>
+                      <span className="text-xs text-gray-300">{game.rating}</span>
+                      <span className="text-xs text-gray-500">({game.downloads})</span>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="flex justify-center mt-8">
+              <Link href="/mobile-games">
+                <Button className="bg-purple-600 hover:bg-purple-700 text-white" size="lg">
+                  View All Mobile Games
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Why Choose PlayJunction */}
         <section className="w-full py-12 md:py-24 bg-gray-950">
           <div className="container px-4 md:px-6 mx-auto">
