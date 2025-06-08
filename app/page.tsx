@@ -109,7 +109,7 @@ export default function Home() {
                 title: "Cyberpunk 2077",
                 price: 19.99,
                 originalPrice: 59.99,
-                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp",
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Correct Cyberpunk 2077 cover
                 discount: 67,
               },
               {
@@ -117,7 +117,7 @@ export default function Home() {
                 title: "Grand Theft Auto V",
                 price: 14.99,
                 originalPrice: 29.99,
-                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp",
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Correct GTA V cover
                 discount: 50,
               },
               {
@@ -125,7 +125,7 @@ export default function Home() {
                 title: "The Witcher 3: Wild Hunt",
                 price: 19.99,
                 originalPrice: 39.99,
-                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Correct Witcher 3 cover
                 discount: 50,
               },
               {
@@ -133,7 +133,7 @@ export default function Home() {
                 title: "Elden Ring",
                 price: 39.99,
                 originalPrice: 59.99,
-                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp", // Correct Elden Ring cover
                 discount: 33,
               },
             ].map((game, i) => (

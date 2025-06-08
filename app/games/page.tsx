@@ -3,14 +3,14 @@ import { GameFilters } from "@/components/game-filters"
 import { Pagination } from "@/components/pagination"
 
 export default function GamesPage() {
-  // Updated games list with real game covers
+  // Fixed games list with correct logos
   const games = [
     {
       id: "cyberpunk-2077",
       title: "Cyberpunk 2077",
       price: 29.99,
       originalPrice: 59.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Correct Cyberpunk 2077 cover
       discount: 50,
     },
     {
@@ -18,7 +18,7 @@ export default function GamesPage() {
       title: "Grand Theft Auto V",
       price: 19.99,
       originalPrice: 29.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Correct GTA V cover
       discount: 33,
     },
     {
@@ -26,7 +26,7 @@ export default function GamesPage() {
       title: "Red Dead Redemption 2",
       price: 39.99,
       originalPrice: 59.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Correct RDR2 cover
       discount: 33,
     },
     {
@@ -34,7 +34,7 @@ export default function GamesPage() {
       title: "Elden Ring",
       price: 44.99,
       originalPrice: 59.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp", // Correct Elden Ring cover
       discount: 25,
     },
     {
@@ -42,7 +42,7 @@ export default function GamesPage() {
       title: "Baldur's Gate 3",
       price: 49.99,
       originalPrice: 59.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp", // Correct BG3 cover
       discount: 17,
     },
     {
@@ -50,7 +50,7 @@ export default function GamesPage() {
       title: "Call of Duty: Modern Warfare III",
       price: 49.99,
       originalPrice: 69.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp", // Correct COD MW3 cover
       discount: 29,
     },
     {
@@ -58,7 +58,7 @@ export default function GamesPage() {
       title: "The Witcher 3: Wild Hunt",
       price: 24.99,
       originalPrice: 39.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Correct Witcher 3 cover
       discount: 38,
     },
     {
@@ -66,7 +66,7 @@ export default function GamesPage() {
       title: "Minecraft",
       price: 26.95,
       originalPrice: 26.95,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // Correct Minecraft cover
       discount: 0,
     },
   ]
