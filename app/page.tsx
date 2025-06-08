@@ -35,8 +35,8 @@ export default function Home() {
               <div className="relative w-full h-[300px] md:h-[400px] lg:h-[500px] overflow-hidden rounded-lg">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 z-10 rounded-lg"></div>
                 <img
-                  src="/placeholder.svg?height=500&width=600"
-                  alt="Featured games collage"
+                  src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  alt="Gaming setup with multiple monitors and RGB lighting"
                   className="object-cover w-full h-full"
                 />
               </div>
@@ -103,15 +103,48 @@ export default function Home() {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-            {[1, 2, 3, 4].map((i) => (
+            {[
+              {
+                id: "cyberpunk-2077",
+                title: "Cyberpunk 2077",
+                price: 19.99,
+                originalPrice: 59.99,
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp",
+                discount: 67,
+              },
+              {
+                id: "red-dead-2",
+                title: "Red Dead Redemption 2",
+                price: 29.99,
+                originalPrice: 59.99,
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp",
+                discount: 50,
+              },
+              {
+                id: "elden-ring",
+                title: "Elden Ring",
+                price: 39.99,
+                originalPrice: 59.99,
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
+                discount: 33,
+              },
+              {
+                id: "baldurs-gate-3",
+                title: "Baldur's Gate 3",
+                price: 44.99,
+                originalPrice: 59.99,
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp",
+                discount: 25,
+              },
+            ].map((game, i) => (
               <GameCard
-                key={i}
-                id={`deal-${i}`}
-                title={`Game Deal ${i}`}
-                price={19.99}
-                originalPrice={59.99}
-                image={`/placeholder.svg?height=300&width=200&text=Game${i}`}
-                discount={67}
+                key={game.id}
+                id={game.id}
+                title={game.title}
+                price={game.price}
+                originalPrice={game.originalPrice}
+                image={game.image}
+                discount={game.discount}
               />
             ))}
           </div>

@@ -30,11 +30,11 @@ export default function GamePage({ params }: GamePageProps) {
     rating: 4.2,
     reviewCount: 387,
     images: [
-      "/placeholder.svg?height=600&width=1000&text=Cyberpunk+Screenshot+1",
-      "/placeholder.svg?height=600&width=1000&text=Cyberpunk+Screenshot+2",
-      "/placeholder.svg?height=600&width=1000&text=Cyberpunk+Screenshot+3",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc6urt.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc6urv.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc6urw.webp",
     ],
-    mainImage: "/placeholder.svg?height=600&width=1000&text=Cyberpunk+2077",
+    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/sc6urt.webp",
     systemRequirements: {
       minimum: {
         os: "Windows 10 (64-bit)",
