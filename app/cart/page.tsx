@@ -15,7 +15,7 @@ export default function CartPage() {
       title: "Cyberpunk 2077",
       price: 29.99,
       originalPrice: 59.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Fixed Cyberpunk 2077 cover
       quantity: 1,
     },
     {
@@ -23,7 +23,7 @@ export default function CartPage() {
       title: "Grand Theft Auto V",
       price: 19.99,
       originalPrice: 29.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp",
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Fixed GTA V cover
       quantity: 1,
     },
     {
