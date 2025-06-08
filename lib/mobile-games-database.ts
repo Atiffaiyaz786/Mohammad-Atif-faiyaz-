@@ -429,3 +429,6 @@ export function getPopularMobileGames(): MobileGame[] {
 export function getFreeMobileGames(): MobileGame[] {
   return mobileGamesDatabase.filter((game) => game.price === 0)
 }
+
+// Export mobile games array with the expected name for deployment
+export const mobileGames = mobileGamesDatabase

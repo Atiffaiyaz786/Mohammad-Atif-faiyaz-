@@ -1,7 +1,10 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -20,6 +23,17 @@ import { CurrencySelector } from "@/components/currency-selector"
 
 export function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const router = useRouter()
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    const query = formData.get("query")?.toString() || ""
+    if (query.trim()) {
+      router.push(`/search?q=${encodeURIComponent(query)}`)
+      setIsSearchOpen(false)
+    }
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-800 bg-gray-950/95 backdrop-blur supports-[backdrop-filter]:bg-gray-950/80">
@@ -79,14 +93,14 @@ export function Header() {
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-gray-900 text-white">
                     {[
-                      { title: "Action", href: "/games?category=action" },
-                      { title: "Adventure", href: "/games?category=adventure" },
-                      { title: "RPG", href: "/games?category=rpg" },
-                      { title: "Strategy", href: "/games?category=strategy" },
-                      { title: "Simulation", href: "/games?category=simulation" },
-                      { title: "Sports", href: "/games?category=sports" },
-                      { title: "Racing", href: "/games?category=racing" },
-                      { title: "Indie", href: "/games?category=indie" },
+                      { title: "Action", href: "/browse/action" },
+                      { title: "Adventure", href: "/browse/adventure" },
+                      { title: "RPG", href: "/browse/rpg" },
+                      { title: "Strategy", href: "/browse/strategy" },
+                      { title: "Simulation", href: "/browse/simulation" },
+                      { title: "Sports", href: "/browse/sports" },
+                      { title: "Racing", href: "/browse/racing" },
+                      { title: "Indie", href: "/browse/indie" },
                     ].map((item) => (
                       <li key={item.title}>
                         <NavigationMenuLink asChild>
@@ -155,15 +169,20 @@ export function Header() {
         </div>
         <div className="flex items-center gap-4">
           {isSearchOpen ? (
-            <div className="flex items-center">
+            <form onSubmit={handleSearch} className="flex items-center">
               <Input
                 type="search"
+                name="query"
                 placeholder="Search games..."
                 className="w-[200px] md:w-[300px] bg-gray-800 border-gray-700 text-white placeholder:text-gray-400"
                 autoFocus
                 onBlur={() => setIsSearchOpen(false)}
               />
-            </div>
+              <Button type="submit" variant="ghost" size="icon" className="ml-1 text-white hover:bg-gray-800">
+                <Search className="h-5 w-5" />
+                <span className="sr-only">Search</span>
+              </Button>
+            </form>
           ) : (
             <Button
               variant="ghost"

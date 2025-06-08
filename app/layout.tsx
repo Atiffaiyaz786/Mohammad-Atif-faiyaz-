@@ -5,6 +5,9 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { ServiceWorkerRegistration } from "@/components/service-worker-registration"
+import { Analytics } from "@/components/analytics"
+import { Suspense } from "react"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -71,7 +74,7 @@ export const metadata: Metadata = {
     site: "@playjunction",
   },
   verification: {
-    google: "your-google-verification-code-here",
+    google: "google-site-verification=YOUR_VERIFICATION_CODE",
     yandex: "your-yandex-verification-code",
     yahoo: "your-yahoo-verification-code",
     other: {
@@ -257,11 +260,27 @@ export default function RootLayout({
             }),
           }}
         />
+        {/* Google Analytics */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-MEASUREMENT_ID');
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.className} min-h-screen bg-gray-950 text-white`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          <ServiceWorkerRegistration />
+          <Analytics />
           <Header />
-          <main role="main">{children}</main>
+          <Suspense fallback={<div>Loading...</div>}>
+            <main role="main">{children}</main>
+          </Suspense>
           <Footer />
         </ThemeProvider>
       </body>

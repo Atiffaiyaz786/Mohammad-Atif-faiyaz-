@@ -570,3 +570,6 @@ export function getAllGames(): Game[] {
 export function getGameById(id: string): Game | undefined {
   return gamesDatabase.find((game) => game.id === id)
 }
+
+// Export games array with the expected name for deployment
+export const games = gamesDatabase
