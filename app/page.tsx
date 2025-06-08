@@ -113,11 +113,19 @@ export default function Home() {
                 discount: 67,
               },
               {
-                id: "red-dead-2",
-                title: "Red Dead Redemption 2",
-                price: 29.99,
-                originalPrice: 59.99,
-                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp",
+                id: "gta-v",
+                title: "Grand Theft Auto V",
+                price: 14.99,
+                originalPrice: 29.99,
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp",
+                discount: 50,
+              },
+              {
+                id: "the-witcher-3",
+                title: "The Witcher 3: Wild Hunt",
+                price: 19.99,
+                originalPrice: 39.99,
+                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
                 discount: 50,
               },
               {
@@ -127,14 +135,6 @@ export default function Home() {
                 originalPrice: 59.99,
                 image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp",
                 discount: 33,
-              },
-              {
-                id: "baldurs-gate-3",
-                title: "Baldur's Gate 3",
-                price: 44.99,
-                originalPrice: 59.99,
-                image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp",
-                discount: 25,
               },
             ].map((game, i) => (
               <GameCard

@@ -3,7 +3,7 @@ import { GameFilters } from "@/components/game-filters"
 import { Pagination } from "@/components/pagination"
 
 export default function GamesPage() {
-  // This would normally come from a database or API
+  // Updated games list with real game covers
   const games = [
     {
       id: "cyberpunk-2077",
@@ -14,7 +14,15 @@ export default function GamesPage() {
       discount: 50,
     },
     {
-      id: "red-dead-2",
+      id: "gta-v",
+      title: "Grand Theft Auto V",
+      price: 19.99,
+      originalPrice: 29.99,
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp",
+      discount: 33,
+    },
+    {
+      id: "red-dead-redemption-2",
       title: "Red Dead Redemption 2",
       price: 39.99,
       originalPrice: 59.99,
@@ -38,36 +46,28 @@ export default function GamesPage() {
       discount: 17,
     },
     {
-      id: "starfield",
-      title: "Starfield",
-      price: 54.99,
-      originalPrice: 69.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6eqb.webp",
-      discount: 21,
-    },
-    {
-      id: "diablo-4",
-      title: "Diablo IV",
-      price: 39.99,
-      originalPrice: 69.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w95.webp",
-      discount: 43,
-    },
-    {
-      id: "hogwarts-legacy",
-      title: "Hogwarts Legacy",
-      price: 34.99,
-      originalPrice: 59.99,
-      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6hqb.webp",
-      discount: 42,
-    },
-    {
       id: "call-of-duty-mw3",
       title: "Call of Duty: Modern Warfare III",
       price: 49.99,
       originalPrice: 69.99,
       image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp",
       discount: 29,
+    },
+    {
+      id: "the-witcher-3",
+      title: "The Witcher 3: Wild Hunt",
+      price: 24.99,
+      originalPrice: 39.99,
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp",
+      discount: 38,
+    },
+    {
+      id: "minecraft",
+      title: "Minecraft",
+      price: 26.95,
+      originalPrice: 26.95,
+      image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp",
+      discount: 0,
     },
   ]
 

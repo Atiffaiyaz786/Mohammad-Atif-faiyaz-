@@ -4,6 +4,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { GameReviews } from "@/components/game-reviews"
 import { GameRequirements } from "@/components/game-requirements"
 import { ShoppingCart, Heart, Share2 } from "lucide-react"
+import { notFound } from "next/navigation"
 
 interface GamePageProps {
   params: {
@@ -11,13 +12,13 @@ interface GamePageProps {
   }
 }
 
-export default function GamePage({ params }: GamePageProps) {
-  // In a real app, you would fetch this data from an API or database
-  const game = {
-    id: params.id,
+// Expanded game database with real games
+const gamesDatabase = {
+  "cyberpunk-2077": {
+    id: "cyberpunk-2077",
     title: "Cyberpunk 2077",
     description:
-      "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Improved and featuring all-new free additional content, customize your character and playstyle as you take on jobs, build a reputation, and unlock upgrades. The relationships you forge and the choices you make will shape the story and the world around you. Legends are made here. What will yours be?",
+      "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival. Improved and featuring all-new free additional content, customize your character and playstyle as you take on jobs, build a reputation, and unlock upgrades.",
     price: 29.99,
     originalPrice: 59.99,
     discount: 50,
@@ -29,27 +30,197 @@ export default function GamePage({ params }: GamePageProps) {
     tags: ["Cyberpunk", "Open World", "RPG", "Sci-fi", "Futuristic"],
     rating: 4.2,
     reviewCount: 387,
+    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/sc6urt.webp",
     images: [
       "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc6urt.webp",
       "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc6urv.webp",
       "https://images.igdb.com/igdb/image/upload/t_screenshot_big/sc6urw.webp",
     ],
-    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/sc6urt.webp",
-    systemRequirements: {
-      minimum: {
-        os: "Windows 10 (64-bit)",
-        cpu: "Intel Core i5-3570K or AMD FX-8310",
-        ram: "8 GB",
-        gpu: "NVIDIA GeForce GTX 970 or AMD Radeon RX 470",
-        storage: "70 GB available space",
-      },
-      recommended: {
-        os: "Windows 10 (64-bit)",
-        cpu: "Intel Core i7-4790 or AMD Ryzen 3 3200G",
-        ram: "12 GB",
-        gpu: "NVIDIA GeForce GTX 1060 6GB or AMD Radeon RX 590",
-        storage: "70 GB SSD",
-      },
+  },
+  "gta-v": {
+    id: "gta-v",
+    title: "Grand Theft Auto V",
+    description:
+      "When a young street hustler, a retired bank robber and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.",
+    price: 19.99,
+    originalPrice: 29.99,
+    discount: 33,
+    releaseDate: "April 14, 2015",
+    developer: "Rockstar North",
+    publisher: "Rockstar Games",
+    genres: ["Action", "Adventure", "Open World"],
+    features: ["Single-player", "Online multiplayer", "Full controller support"],
+    tags: ["Open World", "Crime", "Action", "Multiplayer", "Driving"],
+    rating: 4.6,
+    reviewCount: 1250,
+    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/gtav1.webp",
+    images: [
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/gtav1.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/gtav2.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/gtav3.webp",
+    ],
+  },
+  "red-dead-redemption-2": {
+    id: "red-dead-redemption-2",
+    title: "Red Dead Redemption 2",
+    description:
+      "Winner of over 175 Game of the Year Awards and recipient of over 250 perfect scores, Red Dead Redemption 2 is an epic tale of honor and loyalty at the dawn of the modern age. America, 1899. Arthur Morgan and the Van der Linde gang are outlaws on the run.",
+    price: 39.99,
+    originalPrice: 59.99,
+    discount: 33,
+    releaseDate: "December 5, 2019",
+    developer: "Rockstar Games",
+    publisher: "Rockstar Games",
+    genres: ["Action", "Adventure", "Open World"],
+    features: ["Single-player", "Online multiplayer", "Full controller support"],
+    tags: ["Western", "Open World", "Story Rich", "Multiplayer", "Action"],
+    rating: 4.5,
+    reviewCount: 892,
+    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/rdr2main.webp",
+    images: [
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/rdr21.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/rdr22.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/rdr23.webp",
+    ],
+  },
+  "elden-ring": {
+    id: "elden-ring",
+    title: "Elden Ring",
+    description:
+      "THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between. A vast world where open fields with a variety of situations and huge dungeons with complex and three-dimensional designs are seamlessly connected.",
+    price: 44.99,
+    originalPrice: 59.99,
+    discount: 25,
+    releaseDate: "February 25, 2022",
+    developer: "FromSoftware Inc.",
+    publisher: "Bandai Namco Entertainment",
+    genres: ["RPG", "Action", "Dark Fantasy"],
+    features: ["Single-player", "Online Co-op", "Steam Achievements"],
+    tags: ["Souls-like", "Dark Fantasy", "Difficult", "RPG", "Open World"],
+    rating: 4.7,
+    reviewCount: 1205,
+    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/eldenring1.webp",
+    images: [
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/eldenring1.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/eldenring2.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/eldenring3.webp",
+    ],
+  },
+  "baldurs-gate-3": {
+    id: "baldurs-gate-3",
+    title: "Baldur's Gate 3",
+    description:
+      "Gather your party and return to the Forgotten Realms in a tale of fellowship and betrayal, sacrifice and survival, and the lure of absolute power. Mysterious abilities are awakening inside you, drawn from a mind flayer parasite planted in your brain.",
+    price: 49.99,
+    originalPrice: 59.99,
+    discount: 17,
+    releaseDate: "August 3, 2023",
+    developer: "Larian Studios",
+    publisher: "Larian Studios",
+    genres: ["RPG", "Strategy", "Turn-Based"],
+    features: ["Single-player", "Online Co-op", "Local Co-op"],
+    tags: ["RPG", "D&D", "Turn-Based Combat", "Story Rich", "Fantasy"],
+    rating: 4.8,
+    reviewCount: 756,
+    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/bg3main.webp",
+    images: [
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/bg31.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/bg32.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/bg33.webp",
+    ],
+  },
+  "call-of-duty-mw3": {
+    id: "call-of-duty-mw3",
+    title: "Call of Duty: Modern Warfare III",
+    description:
+      "In the direct sequel to the record-breaking Call of Duty: Modern Warfare II, Captain Price and Task Force 141 face off against the ultimate threat. The ultranationalist war criminal Vladimir Makarov is extending his grasp across the world causing Task Force 141 to fight like never before.",
+    price: 49.99,
+    originalPrice: 69.99,
+    discount: 29,
+    releaseDate: "November 10, 2023",
+    developer: "Sledgehammer Games",
+    publisher: "Activision",
+    genres: ["Action", "FPS", "Multiplayer"],
+    features: ["Single-player", "Online multiplayer", "Cross-platform"],
+    tags: ["FPS", "Military", "Multiplayer", "Action", "Competitive"],
+    rating: 3.8,
+    reviewCount: 432,
+    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/codmw3main.webp",
+    images: [
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/codmw31.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/codmw32.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/codmw33.webp",
+    ],
+  },
+  "the-witcher-3": {
+    id: "the-witcher-3",
+    title: "The Witcher 3: Wild Hunt",
+    description:
+      "As war rages on throughout the Northern Realms, you take on the greatest contract of your life — tracking down the Child of Prophecy, a living weapon that can alter the shape of the world. The Witcher 3: Wild Hunt is a story-driven, next-generation open world role-playing game.",
+    price: 24.99,
+    originalPrice: 39.99,
+    discount: 38,
+    releaseDate: "May 18, 2015",
+    developer: "CD Projekt Red",
+    publisher: "CD Projekt",
+    genres: ["RPG", "Action", "Open World"],
+    features: ["Single-player", "Full controller support", "Steam Achievements"],
+    tags: ["RPG", "Open World", "Fantasy", "Story Rich", "Medieval"],
+    rating: 4.9,
+    reviewCount: 2100,
+    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/witcher3main.webp",
+    images: [
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/witcher31.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/witcher32.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/witcher33.webp",
+    ],
+  },
+  minecraft: {
+    id: "minecraft",
+    title: "Minecraft",
+    description:
+      "Minecraft is a game made up of blocks, creatures, and community. You can survive the night or build a work of art – the choice is all yours. But if the thought of exploring a vast new world all on your own feels overwhelming, then it's a good thing that Minecraft can be played with friends.",
+    price: 26.95,
+    originalPrice: 26.95,
+    discount: 0,
+    releaseDate: "November 18, 2011",
+    developer: "Mojang Studios",
+    publisher: "Microsoft Studios",
+    genres: ["Sandbox", "Survival", "Creative"],
+    features: ["Single-player", "Online multiplayer", "Cross-platform"],
+    tags: ["Sandbox", "Building", "Survival", "Multiplayer", "Creative"],
+    rating: 4.4,
+    reviewCount: 3200,
+    mainImage: "https://images.igdb.com/igdb/image/upload/t_screenshot_huge/minecraftmain.webp",
+    images: [
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/minecraft1.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/minecraft2.webp",
+      "https://images.igdb.com/igdb/image/upload/t_screenshot_big/minecraft3.webp",
+    ],
+  },
+}
+
+export default function GamePage({ params }: GamePageProps) {
+  const game = gamesDatabase[params.id as keyof typeof gamesDatabase]
+
+  if (!game) {
+    notFound()
+  }
+
+  const systemRequirements = {
+    minimum: {
+      os: "Windows 10 (64-bit)",
+      cpu: "Intel Core i5-3570K or AMD FX-8310",
+      ram: "8 GB",
+      gpu: "NVIDIA GeForce GTX 970 or AMD Radeon RX 470",
+      storage: "70 GB available space",
+    },
+    recommended: {
+      os: "Windows 10 (64-bit)",
+      cpu: "Intel Core i7-4790 or AMD Ryzen 3 3200G",
+      ram: "12 GB",
+      gpu: "NVIDIA GeForce GTX 1060 6GB or AMD Radeon RX 590",
+      storage: "70 GB SSD",
     },
   }
 
@@ -88,8 +259,12 @@ export default function GamePage({ params }: GamePageProps) {
 
           <div className="flex items-center gap-4 mb-6">
             <div className="text-3xl font-bold text-white">${game.price}</div>
-            <div className="text-xl line-through text-gray-500">${game.originalPrice}</div>
-            <Badge className="bg-purple-600 text-white">{game.discount}% OFF</Badge>
+            {game.originalPrice > game.price && (
+              <>
+                <div className="text-xl line-through text-gray-500">${game.originalPrice}</div>
+                <Badge className="bg-purple-600 text-white">{game.discount}% OFF</Badge>
+              </>
+            )}
           </div>
 
           <div className="flex gap-2 mb-8">
@@ -156,7 +331,7 @@ export default function GamePage({ params }: GamePageProps) {
           </div>
         </TabsContent>
         <TabsContent value="requirements" className="bg-gray-800 p-6 rounded-b-lg mt-0">
-          <GameRequirements requirements={game.systemRequirements} />
+          <GameRequirements requirements={systemRequirements} />
         </TabsContent>
         <TabsContent value="reviews" className="bg-gray-800 p-6 rounded-b-lg mt-0">
           <GameReviews gameId={game.id} />
