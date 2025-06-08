@@ -19,12 +19,12 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "bgmi",
     title: "Battlegrounds Mobile India (BGMI)",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/DYEG3HH-M54_2bLw1Sy7VTKnydSfPHGul3Xo25OxDR9yVKkmUkPpR4KyMPRsaQVtgA=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Official BGMI cover
     category: ["Battle Royale", "Action", "Shooter"],
     developer: "Krafton",
     publisher: "Krafton",
-    description: "The Indian version of PUBG Mobile with intense battle royale gameplay.",
+    description:
+      "The Indian version of PUBG Mobile with intense battle royale gameplay featuring 100 players on a massive 8x8 km map.",
     platform: ["Android", "iOS"],
     size: "722 MB",
     downloads: "100M+",
@@ -34,12 +34,12 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "free-fire",
     title: "Garena Free Fire MAX",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/9zc9s-oKQh0TZV7hNPf1rIHfAEAGYb0ivBbb0l9ZYcIbC_SAH3EZCYMZIQdNR2LF6V4=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp", // Official Free Fire cover
     category: ["Battle Royale", "Action", "Shooter"],
     developer: "Garena International",
     publisher: "Garena International",
-    description: "Ultimate survival shooter game with 10-minute matches and 50 players.",
+    description:
+      "Ultimate survival shooter game with 10-minute matches and 50 players. Enhanced graphics and exclusive content.",
     platform: ["Android", "iOS"],
     size: "510 MB",
     downloads: "500M+",
@@ -49,12 +49,12 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "cod-mobile",
     title: "Call of Duty: Mobile",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/aOVexQckoyjN2WJp_xy3WuU5kV6NTnLVmIT_9Lj8tpqiTbOQUb1tdIJoLfuCPl0Cvg=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Official COD Mobile cover
     category: ["FPS", "Action", "Battle Royale"],
     developer: "Activision",
     publisher: "Activision",
-    description: "Official Call of Duty experience on mobile with multiplayer and battle royale.",
+    description:
+      "Official Call of Duty experience on mobile with multiplayer modes, battle royale, and iconic maps from the franchise.",
     platform: ["Android", "iOS"],
     size: "1.5 GB",
     downloads: "100M+",
@@ -64,12 +64,11 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "pubg-mobile",
     title: "PUBG Mobile",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/JRd05pyBH41qjgsJuWduRJpDeZG0Hnb0yjf2nWqO7VaGKL10-G5UIygxED-WNOc3pg=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Official PUBG Mobile cover
     category: ["Battle Royale", "Action", "Shooter"],
     developer: "Tencent Games",
     publisher: "Tencent Games",
-    description: "The original battle royale experience on mobile.",
+    description: "The original battle royale experience on mobile with realistic graphics and intense gameplay.",
     platform: ["Android", "iOS"],
     size: "698 MB",
     downloads: "1B+",
@@ -79,12 +78,11 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "apex-legends-mobile",
     title: "Apex Legends Mobile",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/vIGF4eBXvBMSqN1MsNTe5K0DwfT-pu-LQo5_R5Z1tJVuYezLOVyQFvPUQwzRUVKzS4I=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vx5.webp", // Official Apex Legends cover
     category: ["Battle Royale", "FPS", "Action"],
     developer: "Electronic Arts",
     publisher: "Electronic Arts",
-    description: "Strategic battle royale shooter with unique characters and abilities.",
+    description: "Strategic battle royale shooter with unique characters and abilities. Team up and fight for glory.",
     platform: ["Android", "iOS"],
     size: "2.1 GB",
     downloads: "10M+",
@@ -96,12 +94,11 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "candy-crush-saga",
     title: "Candy Crush Saga",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/TLUeelx8wcpEzf3hoqeLxPs3ai1tdGtAZTIFkNqy3gbDp8TNHMgYYcbkCwsUJCEoeQ=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Candy Crush cover
     category: ["Casual", "Puzzle", "Match-3"],
     developer: "King",
     publisher: "King",
-    description: "Switch and match candies in this tasty puzzle adventure.",
+    description: "Switch and match candies in this tasty puzzle adventure with thousands of levels.",
     platform: ["Android", "iOS"],
     size: "156 MB",
     downloads: "1B+",
@@ -111,12 +108,11 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "subway-surfers",
     title: "Subway Surfers",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/N0UxhBVUmx8s7y3F7Kqre2AcpXyPDKAp8nHjiPPoOONc_sfugHCYMgBQ_J-kpqwEZg=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Subway Surfers cover
     category: ["Casual", "Endless Runner", "Arcade"],
     developer: "SYBO Games",
     publisher: "SYBO Games",
-    description: "Dash as fast as you can through the subway and escape from the grumpy Inspector.",
+    description: "Dash as fast as you can through the subway and escape from the grumpy Inspector and his dog.",
     platform: ["Android", "iOS"],
     size: "173 MB",
     downloads: "1B+",
@@ -126,8 +122,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "temple-run-2",
     title: "Temple Run 2",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/go51JYpTV-SxHGZzBqIWQrPRt0GzwR_zzSnLYcA-mJTBjNHQG1nBRVOgzXUtpGwFwA=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // Temple Run 2 cover
     category: ["Casual", "Endless Runner", "Arcade"],
     developer: "Imangi Studios",
     publisher: "Imangi Studios",
@@ -141,8 +136,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "among-us-mobile",
     title: "Among Us",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/VHB9bVB8cTcnqwnu0nJqKYbiutRclnbGxTpwnayKB4vMxZj8pk1220Rg-6oQ68DwAkqO=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2kkt.webp", // Among Us cover
     category: ["Social", "Party", "Strategy"],
     developer: "InnerSloth LLC",
     publisher: "InnerSloth LLC",
@@ -157,8 +151,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "clash-of-clans",
     title: "Clash of Clans",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/akv2Bdp7i5Vv-sl9FuP3-lCZQFJuFfhZk-Aw-ooMs6PB6x-1znVt9B-fEMHeKH3KtpQm=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Clash of Clans cover
     category: ["Strategy", "Building", "MMO"],
     developer: "Supercell",
     publisher: "Supercell",
@@ -174,8 +167,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "genshin-impact",
     title: "Genshin Impact",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/So91qs_eRRralMxUmwOlnJT4CwKxqG9Pp-KbuQyFsrEgRwDnXvNLOFmhrEh4Esv5UfA=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjs.webp", // Official Genshin Impact cover
     category: ["RPG", "Open World", "Adventure"],
     developer: "miHoYo",
     publisher: "miHoYo",
@@ -189,8 +181,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "raid-shadow-legends",
     title: "RAID: Shadow Legends",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/LByrur1mTmPeNr0ljI-uAUcct1rzmTve5Esau1SwoAzjBXQUbkxUj3gnEHBCJ7uxYg=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mju.webp", // RAID cover
     category: ["RPG", "Turn-based", "Fantasy"],
     developer: "Plarium Global Ltd",
     publisher: "Plarium Global Ltd",
@@ -205,12 +196,11 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "pokemon-go",
     title: "Pokémon GO",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/SVQIX_fYcu5o-TN2ygO-QQUaHgAUjLYwUWB2GGRjfRdXOzVW9ILxgyX0M8hXXwU6RHQ=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp", // Pokemon GO cover
     category: ["AR", "Adventure", "Collecting"],
     developer: "Niantic, Inc.",
     publisher: "Niantic, Inc.",
-    description: "Venture to the real world to discover and catch Pokémon species.",
+    description: "Venture to the real world to discover and catch Pokémon species using augmented reality.",
     platform: ["Android", "iOS"],
     size: "112 MB",
     downloads: "100M+",
@@ -220,8 +210,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "mobile-legends",
     title: "Mobile Legends: Bang Bang",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/ha1vofCWS5lFhVe0gabwIetwjT4fUY5vLFgRPBT5XNJvD9-XZgLgIcRNyx-oNCQn4rY=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp", // Mobile Legends cover
     category: ["MOBA", "Action", "Strategy"],
     developer: "Moonton",
     publisher: "Moonton",
@@ -235,8 +224,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "roblox-mobile",
     title: "Roblox",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/WNWZaxi9RdJKe2o8VFljYWQ1a5F_7THrbIx-jN_QZVE5FuGbHtR7wFjNgsuzslnolA=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6h94.webp", // Roblox cover
     category: ["Adventure", "Simulation", "Social"],
     developer: "Roblox Corporation",
     publisher: "Roblox Corporation",
@@ -252,8 +240,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "fifa-mobile",
     title: "EA SPORTS FC Mobile",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/Ni0S2Ltuia4c8KXDsHXoK9t0X-ihAzKk_0u7iVT9pCn5Ks7OCuJWGh_eRGCw7pYUruk=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkj.webp", // FIFA Mobile cover
     category: ["Sports", "Football", "Simulation"],
     developer: "Electronic Arts",
     publisher: "Electronic Arts",
@@ -267,8 +254,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "8-ball-pool",
     title: "8 Ball Pool",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/bPz1guJ6FTlfWoKEX3OMhk5IXiLTqwzQmGFpHMDGnb0EIDN1L59H6zQB866uQ9RUFQ=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4ocq.webp", // 8 Ball Pool cover
     category: ["Sports", "Billiards", "Multiplayer"],
     developer: "Miniclip.com",
     publisher: "Miniclip.com",
@@ -282,8 +268,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "wcc3",
     title: "World Cricket Championship 3",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/Cy1Nt3alWN_9irZhw9eJWDIVXzGaIYVAJcbjlKYTZcGLWQJ03kMGkOVygYlZ4fRxvnA=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6e6k.webp", // WCC3 cover
     category: ["Sports", "Cricket", "Simulation"],
     developer: "Nextwave Multimedia",
     publisher: "Nextwave Multimedia",
@@ -297,8 +282,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "asphalt-9",
     title: "Asphalt 9: Legends",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/V0x3OvMK-r8ghp-V7sFVMjbCZ9fYgvQnBGFRfvmH-uhXpnVElr_1pNZIQhPwPlGeRGE=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.webp", // Asphalt 9 cover
     category: ["Racing", "Arcade", "Action"],
     developer: "Gameloft SE",
     publisher: "Gameloft SE",
@@ -312,8 +296,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "real-cricket",
     title: "Real Cricket™ 20",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/gKRvPTDGkew-REhsZ0hQwTgUqXW-TeZNYMgpjiwLOHnQQjs1mkSWGIv_FuR_8WnI9ss=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Real Cricket cover
     category: ["Sports", "Cricket", "Simulation"],
     developer: "Nautilus Mobile",
     publisher: "Nautilus Mobile",
@@ -324,13 +307,12 @@ export const mobileGamesDatabase: MobileGame[] = [
     rating: 4.2,
   },
 
-  // More games to reach 100+
+  // More popular games
   {
     id: "brain-test",
     title: "Brain Test: Tricky Puzzles",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/e5jzYTn7Mjh9Ghn-DFpVedkOlRQJvPrGJkE1YOMIlGUdKcmGXRGOjXgJ9-Pp5MQ1f4k=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Brain Test cover
     category: ["Puzzle", "Brain Training", "Casual"],
     developer: "Unico Studio",
     publisher: "Unico Studio",
@@ -344,8 +326,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "wordscapes",
     title: "Wordscapes",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/Pl2nmu5U9CH3NQqLBTjnokoV325zESrX6KIaHrwSqREEJDWIv1yJpRCXs2yve3Ev4wY=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Wordscapes cover
     category: ["Word", "Puzzle", "Brain Training"],
     developer: "PeopleFun",
     publisher: "PeopleFun",
@@ -359,8 +340,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "2048",
     title: "2048",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/YU-v_L4Hp_5gzheZEQnYD0pjjCXZzpjFGPUJM-9bCjHPCIQqNYOBfqCXJSvNnPRKYw=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // 2048 cover
     category: ["Puzzle", "Logic", "Numbers"],
     developer: "Estoty Entertainment",
     publisher: "Estoty Entertainment",
@@ -374,8 +354,7 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "homescapes",
     title: "Homescapes",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/cWG9-bk2_-LRRbAjwLXAWjWpQwEMjhdLRJHkHzUgqQQrEHeFx55Eyh4ZwL2kJT0Fmbs=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Homescapes cover
     category: ["Puzzle", "Match-3", "Decoration"],
     developer: "Playrix",
     publisher: "Playrix",
@@ -389,14 +368,41 @@ export const mobileGamesDatabase: MobileGame[] = [
     id: "gardenscapes",
     title: "Gardenscapes",
     price: 0,
-    image:
-      "https://play-lh.googleusercontent.com/iOoSEpZsUfjDPUZGoe2n1XdsA-LBKPJN2S8G5jS_84-9PGHJcgQi0JDwGFYIL5qMzf8=w240-h480-rw",
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Gardenscapes cover
     category: ["Puzzle", "Match-3", "Decoration"],
     developer: "Playrix",
     publisher: "Playrix",
     description: "Restore a beautiful garden to its former glory by completing match-3 levels.",
     platform: ["Android", "iOS"],
     size: "162 MB",
+    downloads: "100M+",
+    rating: 4.3,
+  },
+  {
+    id: "clash-royale",
+    title: "Clash Royale",
+    price: 0,
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Clash Royale cover
+    category: ["Strategy", "Card", "Real-time"],
+    developer: "Supercell",
+    publisher: "Supercell",
+    description: "Collect and upgrade dozens of cards featuring Clash of Clans troops, spells and defenses.",
+    platform: ["Android", "iOS"],
+    size: "134 MB",
+    downloads: "100M+",
+    rating: 4.2,
+  },
+  {
+    id: "brawl-stars",
+    title: "Brawl Stars",
+    price: 0,
+    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjs.webp", // Brawl Stars cover
+    category: ["Action", "MOBA", "Shooter"],
+    developer: "Supercell",
+    publisher: "Supercell",
+    description: "Fast-paced 3v3 multiplayer battles with unique characters and abilities.",
+    platform: ["Android", "iOS"],
+    size: "158 MB",
     downloads: "100M+",
     rating: 4.3,
   },

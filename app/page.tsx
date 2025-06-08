@@ -176,48 +176,42 @@ export default function Home() {
                 {
                   id: "bgmi",
                   title: "BGMI",
-                  image:
-                    "https://play-lh.googleusercontent.com/DYEG3HH-M54_2bLw1Sy7VTKnydSfPHGul3Xo25OxDR9yVKkmUkPpR4KyMPRsaQVtgA=w240-h480-rw",
+                  image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Official BGMI cover
                   rating: 4.2,
                   downloads: "100M+",
                 },
                 {
                   id: "free-fire",
                   title: "Free Fire MAX",
-                  image:
-                    "https://play-lh.googleusercontent.com/9zc9s-oKQh0TZV7hNPf1rIHfAEAGYb0ivBbb0l9ZYcIbC_SAH3EZCYMZIQdNR2LF6V4=w240-h480-rw",
+                  image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp", // Official Free Fire cover
                   rating: 4.1,
                   downloads: "500M+",
                 },
                 {
                   id: "cod-mobile",
                   title: "COD Mobile",
-                  image:
-                    "https://play-lh.googleusercontent.com/aOVexQckoyjN2WJp_xy3WuU5kV6NTnLVmIT_9Lj8tpqiTbOQUb1tdIJoLfuCPl0Cvg=w240-h480-rw",
+                  image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Official COD Mobile cover
                   rating: 4.3,
                   downloads: "100M+",
                 },
                 {
                   id: "genshin-impact",
                   title: "Genshin Impact",
-                  image:
-                    "https://play-lh.googleusercontent.com/So91qs_eRRralMxUmwOlnJT4CwKxqG9Pp-KbuQyFsrEgRwDnXvNLOFmhrEh4Esv5UfA=w240-h480-rw",
+                  image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjs.webp", // Official Genshin Impact cover
                   rating: 4.3,
                   downloads: "100M+",
                 },
                 {
                   id: "clash-of-clans",
                   title: "Clash of Clans",
-                  image:
-                    "https://play-lh.googleusercontent.com/akv2Bdp7i5Vv-sl9FuP3-lCZQFJuFfhZk-Aw-ooMs6PB6x-1znVt9B-fEMHeKH3KtpQm=w240-h480-rw",
+                  image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Official Clash of Clans cover
                   rating: 4.5,
                   downloads: "500M+",
                 },
                 {
                   id: "subway-surfers",
                   title: "Subway Surfers",
-                  image:
-                    "https://play-lh.googleusercontent.com/N0UxhBVUmx8s7y3F7Kqre2AcpXyPDKAp8nHjiPPoOONc_sfugHCYMgBQ_J-kpqwEZg=w240-h480-rw",
+                  image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Official Subway Surfers cover
                   rating: 4.5,
                   downloads: "1B+",
                 },
