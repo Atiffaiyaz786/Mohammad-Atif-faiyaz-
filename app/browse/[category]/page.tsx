@@ -1,20 +1,35 @@
+import { Suspense } from "react"
 import { notFound } from "next/navigation"
 import { GameCard } from "@/components/game-card"
 import { Pagination } from "@/components/pagination"
 import { games } from "@/lib/games-database"
 
-const validCategories = [
-  "action",
-  "adventure",
-  "rpg",
-  "strategy",
-  "simulation",
-  "sports",
-  "racing",
-  "puzzle",
-  "horror",
-  "indie",
-]
+// Define valid categories
+const validCategories = ["action", "adventure", "rpg", "strategy", "simulation", "sports", "racing", "indie"]
+
+export function generateStaticParams() {
+  return validCategories.map((category) => ({
+    category,
+  }))
+}
+
+export function generateMetadata({ params }: { params: { category: string } }) {
+  const category = params.category.toLowerCase()
+
+  if (!validCategories.includes(category)) {
+    return {
+      title: "Category Not Found | PlayJunction",
+      description: "The requested game category could not be found.",
+    }
+  }
+
+  const capitalizedCategory = category.charAt(0).toUpperCase() + category.slice(1)
+
+  return {
+    title: `${capitalizedCategory} Games | PlayJunction`,
+    description: `Browse our collection of ${category} games at affordable prices. Find the best ${category} games for PC with huge discounts.`,
+  }
+}
 
 export default function CategoryPage({
   params,
@@ -27,7 +42,7 @@ export default function CategoryPage({
   const currentPage = Number(searchParams.page) || 1
   const gamesPerPage = 12
 
-  // Validate category
+  // Check if category is valid
   if (!validCategories.includes(category)) {
     notFound()
   }
@@ -40,20 +55,25 @@ export default function CategoryPage({
   const totalPages = Math.ceil(totalGames / gamesPerPage)
   const paginatedGames = filteredGames.slice((currentPage - 1) * gamesPerPage, currentPage * gamesPerPage)
 
-  const categoryTitle = category.charAt(0).toUpperCase() + category.slice(1)
+  const capitalizedCategory = category.charAt(0).toUpperCase() + category.slice(1)
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-2">{categoryTitle} Games</h1>
-      <p className="text-gray-400 mb-8">Discover the best {category} games at affordable prices</p>
+    <div className="container px-4 py-8 md:px-6 md:py-12">
+      <h1 className="text-3xl font-bold mb-6">{capitalizedCategory} Games</h1>
 
-      {filteredGames.length > 0 ? (
+      {totalGames > 0 ? (
         <>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {paginatedGames.map((game) => (
-              <GameCard key={game.id} game={game} />
-            ))}
-          </div>
+          <p className="text-gray-400 mb-8">
+            Browse our collection of {totalGames} {category} games
+          </p>
+
+          <Suspense fallback={<div>Loading games...</div>}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {paginatedGames.map((game) => (
+                <GameCard key={game.id} game={game} />
+              ))}
+            </div>
+          </Suspense>
 
           {totalPages > 1 && (
             <div className="mt-12">
@@ -64,16 +84,11 @@ export default function CategoryPage({
       ) : (
         <div className="text-center py-16">
           <h2 className="text-2xl font-semibold mb-4">No games found</h2>
-          <p className="text-gray-400">We don't have any {category} games available at the moment.</p>
+          <p className="text-gray-400 mb-8">
+            We don't have any {category} games at the moment. Please check back later.
+          </p>
         </div>
       )}
     </div>
   )
-}
-
-// Generate static params for better performance
-export async function generateStaticParams() {
-  return validCategories.map((category) => ({
-    category: category,
-  }))
 }
