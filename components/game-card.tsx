@@ -18,7 +18,11 @@ export function GameCard({ id, title, price, originalPrice, image, discount }: G
     <div className="group relative overflow-hidden rounded-lg bg-gray-800 transition-all hover:shadow-xl hover:shadow-purple-500/20">
       <Link href={`/games/${id}`} className="block">
         <div className="aspect-[3/4] w-full overflow-hidden">
-          
+          <img
+            src={image || "/placeholder.svg"}
+            alt={title}
+            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+          />
         </div>
       </Link>
       {discount > 0 && <Badge className="absolute top-2 right-2 bg-purple-600 text-white">{discount}% OFF</Badge>}
