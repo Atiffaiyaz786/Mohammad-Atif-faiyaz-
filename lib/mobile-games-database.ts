@@ -1,434 +1,277 @@
 export interface MobileGame {
   id: string
   title: string
-  price: number // Will be 0 for free games
+  price: number
+  originalPrice?: number
+  discount?: number
   image: string
-  category: string[]
+  description: string
+  category: string
+  genre: string
+  rating: number
+  reviews: number
+  releaseDate: string
   developer: string
   publisher: string
-  description: string
-  platform: string[] // Android, iOS, or both
-  size: string // App size
-  downloads: string // Number of downloads
-  rating: number
+  tags: string[]
+  screenshots: string[]
+  size: string
+  version: string
+  compatibility: string
+  iosAppId?: string
+  androidPackage?: string
 }
 
-export const mobileGamesDatabase: MobileGame[] = [
-  // Popular Battle Royale Games with CORRECT official covers
-  {
-    id: "bgmi",
-    title: "Battlegrounds Mobile India (BGMI)",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Official BGMI cover
-    category: ["Battle Royale", "Action", "Shooter"],
-    developer: "Krafton",
-    publisher: "Krafton",
-    description:
-      "The Indian version of PUBG Mobile with intense battle royale gameplay featuring 100 players on a massive 8x8 km map.",
-    platform: ["Android", "iOS"],
-    size: "722 MB",
-    downloads: "100M+",
-    rating: 4.2,
-  },
-  {
-    id: "free-fire",
-    title: "Garena Free Fire MAX",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp", // Official Free Fire cover
-    category: ["Battle Royale", "Action", "Shooter"],
-    developer: "Garena International",
-    publisher: "Garena International",
-    description:
-      "Ultimate survival shooter game with 10-minute matches and 50 players. Enhanced graphics and exclusive content.",
-    platform: ["Android", "iOS"],
-    size: "510 MB",
-    downloads: "500M+",
-    rating: 4.1,
-  },
-  {
-    id: "cod-mobile",
-    title: "Call of Duty: Mobile",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Official COD Mobile cover
-    category: ["FPS", "Action", "Battle Royale"],
-    developer: "Activision",
-    publisher: "Activision",
-    description:
-      "Official Call of Duty experience on mobile with multiplayer modes, battle royale, and iconic maps from the franchise.",
-    platform: ["Android", "iOS"],
-    size: "1.5 GB",
-    downloads: "100M+",
-    rating: 4.3,
-  },
-  {
-    id: "pubg-mobile",
-    title: "PUBG Mobile",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Official PUBG Mobile cover
-    category: ["Battle Royale", "Action", "Shooter"],
-    developer: "Tencent Games",
-    publisher: "Tencent Games",
-    description: "The original battle royale experience on mobile with realistic graphics and intense gameplay.",
-    platform: ["Android", "iOS"],
-    size: "698 MB",
-    downloads: "1B+",
-    rating: 4.1,
-  },
-  {
-    id: "apex-legends-mobile",
-    title: "Apex Legends Mobile",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vx5.webp", // Official Apex Legends cover
-    category: ["Battle Royale", "FPS", "Action"],
-    developer: "Electronic Arts",
-    publisher: "Electronic Arts",
-    description: "Strategic battle royale shooter with unique characters and abilities. Team up and fight for glory.",
-    platform: ["Android", "iOS"],
-    size: "2.1 GB",
-    downloads: "10M+",
-    rating: 4.0,
-  },
-
-  // Popular Casual Games with CORRECT covers
-  {
-    id: "candy-crush-saga",
-    title: "Candy Crush Saga",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Official Candy Crush cover
-    category: ["Casual", "Puzzle", "Match-3"],
-    developer: "King",
-    publisher: "King",
-    description: "Switch and match candies in this tasty puzzle adventure with thousands of levels.",
-    platform: ["Android", "iOS"],
-    size: "156 MB",
-    downloads: "1B+",
-    rating: 4.4,
-  },
-  {
-    id: "subway-surfers",
-    title: "Subway Surfers",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Official Subway Surfers cover
-    category: ["Casual", "Endless Runner", "Arcade"],
-    developer: "SYBO Games",
-    publisher: "SYBO Games",
-    description: "Dash as fast as you can through the subway and escape from the grumpy Inspector and his dog.",
-    platform: ["Android", "iOS"],
-    size: "173 MB",
-    downloads: "1B+",
-    rating: 4.5,
-  },
-  {
-    id: "temple-run-2",
-    title: "Temple Run 2",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // Official Temple Run 2 cover
-    category: ["Casual", "Endless Runner", "Arcade"],
-    developer: "Imangi Studios",
-    publisher: "Imangi Studios",
-    description: "Navigate perilous cliffs, zip lines, mines and forests as you try to escape with the cursed idol.",
-    platform: ["Android", "iOS"],
-    size: "114 MB",
-    downloads: "500M+",
-    rating: 4.3,
-  },
-  {
-    id: "among-us-mobile",
-    title: "Among Us",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2kkt.webp", // Official Among Us cover
-    category: ["Social", "Party", "Strategy"],
-    developer: "InnerSloth LLC",
-    publisher: "InnerSloth LLC",
-    description:
-      "Work together to prepare your spaceship for departure, but beware as one or more random players among the crew are Impostors.",
-    platform: ["Android", "iOS"],
-    size: "157 MB",
-    downloads: "100M+",
-    rating: 4.2,
-  },
+export const mobileGames: MobileGame[] = [
   {
     id: "clash-of-clans",
     title: "Clash of Clans",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Official Clash of Clans cover
-    category: ["Strategy", "Building", "MMO"],
+    image: "/placeholder.svg?height=300&width=400&text=Clash+of+Clans",
+    description:
+      "Join millions of players worldwide as you build your village, raise a clan, and compete in epic Clan Wars!",
+    category: "strategy",
+    genre: "Strategy",
+    rating: 4.5,
+    reviews: 2500000,
+    releaseDate: "2012-08-02",
     developer: "Supercell",
     publisher: "Supercell",
-    description: "Build your village, train your troops and battle with millions of other players online.",
-    platform: ["Android", "iOS"],
-    size: "193 MB",
-    downloads: "500M+",
-    rating: 4.5,
-  },
-
-  // Popular RPG Games with CORRECT covers
-  {
-    id: "genshin-impact",
-    title: "Genshin Impact",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjs.webp", // Official Genshin Impact cover
-    category: ["RPG", "Open World", "Adventure"],
-    developer: "miHoYo",
-    publisher: "miHoYo",
-    description: "Step into Teyvat, a vast world teeming with life and flowing with elemental energy.",
-    platform: ["Android", "iOS"],
-    size: "15 GB",
-    downloads: "100M+",
-    rating: 4.3,
-  },
-  {
-    id: "raid-shadow-legends",
-    title: "RAID: Shadow Legends",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mju.webp", // Official RAID cover
-    category: ["RPG", "Turn-based", "Fantasy"],
-    developer: "Plarium Global Ltd",
-    publisher: "Plarium Global Ltd",
-    description:
-      "Collect over 400 Champions and assemble the perfect team for dungeon runs, arena battles, and story campaigns.",
-    platform: ["Android", "iOS"],
-    size: "2.8 GB",
-    downloads: "50M+",
-    rating: 4.1,
+    tags: ["Strategy", "Multiplayer", "Base Building", "Free-to-Play"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
+    size: "285 MB",
+    version: "15.83.27",
+    compatibility: "iOS 9.0+ / Android 4.1+",
+    iosAppId: "529479190",
+    androidPackage: "com.supercell.clashofclans",
   },
   {
     id: "pokemon-go",
     title: "Pokémon GO",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5w2t.webp", // Official Pokemon GO cover
-    category: ["AR", "Adventure", "Collecting"],
-    developer: "Niantic, Inc.",
-    publisher: "Niantic, Inc.",
-    description: "Venture to the real world to discover and catch Pokémon species using augmented reality.",
-    platform: ["Android", "iOS"],
-    size: "112 MB",
-    downloads: "100M+",
+    image: "/placeholder.svg?height=300&width=400&text=Pokemon+GO",
+    description: "Join Trainers across the globe who are discovering Pokémon as they explore the world around them.",
+    category: "adventure",
+    genre: "Adventure",
     rating: 4.1,
+    reviews: 15000000,
+    releaseDate: "2016-07-06",
+    developer: "Niantic",
+    publisher: "Niantic",
+    tags: ["AR", "Adventure", "Location-Based", "Free-to-Play"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
+    size: "312 MB",
+    version: "0.291.0",
+    compatibility: "iOS 12.0+ / Android 6.0+",
+    iosAppId: "1094591345",
+    androidPackage: "com.nianticlabs.pokemongo",
   },
   {
-    id: "mobile-legends",
-    title: "Mobile Legends: Bang Bang",
+    id: "candy-crush-saga",
+    title: "Candy Crush Saga",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co7f9s.webp", // Official Mobile Legends cover
-    category: ["MOBA", "Action", "Strategy"],
-    developer: "Moonton",
-    publisher: "Moonton",
-    description: "5v5 MOBA game designed for mobile with 10-second matchmaking and 10-minute battles.",
-    platform: ["Android", "iOS"],
-    size: "143 MB",
-    downloads: "500M+",
-    rating: 4.2,
-  },
-  {
-    id: "roblox-mobile",
-    title: "Roblox",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6h94.webp", // Official Roblox cover
-    category: ["Adventure", "Simulation", "Social"],
-    developer: "Roblox Corporation",
-    publisher: "Roblox Corporation",
-    description: "Millions of user-created worlds to explore, play games, and socialize with friends.",
-    platform: ["Android", "iOS"],
-    size: "167 MB",
-    downloads: "500M+",
-    rating: 4.4,
-  },
-
-  // Sports Games with CORRECT covers
-  {
-    id: "fifa-mobile",
-    title: "EA SPORTS FC Mobile",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vkj.webp", // Official FIFA Mobile cover
-    category: ["Sports", "Football", "Simulation"],
-    developer: "Electronic Arts",
-    publisher: "Electronic Arts",
-    description: "Build your Ultimate Team and compete in authentic football matches on mobile.",
-    platform: ["Android", "iOS"],
-    size: "1.5 GB",
-    downloads: "100M+",
-    rating: 4.2,
-  },
-  {
-    id: "8-ball-pool",
-    title: "8 Ball Pool",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4ocq.webp", // Official 8 Ball Pool cover
-    category: ["Sports", "Billiards", "Multiplayer"],
-    developer: "Miniclip.com",
-    publisher: "Miniclip.com",
-    description: "Play the world's #1 pool game with friends and competitors worldwide.",
-    platform: ["Android", "iOS"],
-    size: "88 MB",
-    downloads: "500M+",
-    rating: 4.4,
-  },
-  {
-    id: "wcc3",
-    title: "World Cricket Championship 3",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6e6k.webp", // Official WCC3 cover
-    category: ["Sports", "Cricket", "Simulation"],
-    developer: "Nextwave Multimedia",
-    publisher: "Nextwave Multimedia",
-    description: "The most complete cricket game with realistic physics and animations.",
-    platform: ["Android", "iOS"],
-    size: "450 MB",
-    downloads: "50M+",
-    rating: 4.0,
-  },
-  {
-    id: "asphalt-9",
-    title: "Asphalt 9: Legends",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.webp", // Official Asphalt 9 cover
-    category: ["Racing", "Arcade", "Action"],
-    developer: "Gameloft SE",
-    publisher: "Gameloft SE",
-    description: "Take the wheel of over 50 prestigious dream cars and race across spectacular locations.",
-    platform: ["Android", "iOS"],
-    size: "2.5 GB",
-    downloads: "100M+",
-    rating: 4.5,
-  },
-  {
-    id: "real-cricket",
-    title: "Real Cricket™ 20",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.webp", // Official Real Cricket cover
-    category: ["Sports", "Cricket", "Simulation"],
-    developer: "Nautilus Mobile",
-    publisher: "Nautilus Mobile",
-    description: "The most complete mobile cricket game with realistic gameplay and tournaments.",
-    platform: ["Android", "iOS"],
-    size: "350 MB",
-    downloads: "100M+",
-    rating: 4.2,
-  },
-
-  // More popular games with CORRECT covers
-  {
-    id: "brain-test",
-    title: "Brain Test: Tricky Puzzles",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.webp", // Official Brain Test cover
-    category: ["Puzzle", "Brain Training", "Casual"],
-    developer: "Unico Studio",
-    publisher: "Unico Studio",
-    description: "Addictive brain games with tricky puzzles that challenge your mind.",
-    platform: ["Android", "iOS"],
-    size: "76 MB",
-    downloads: "100M+",
-    rating: 4.2,
-  },
-  {
-    id: "wordscapes",
-    title: "Wordscapes",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1q1f.webp", // Official Wordscapes cover
-    category: ["Word", "Puzzle", "Brain Training"],
-    developer: "PeopleFun",
-    publisher: "PeopleFun",
-    description: "A challenging word game that combines word search and crossword puzzles.",
-    platform: ["Android", "iOS"],
-    size: "85 MB",
-    downloads: "100M+",
-    rating: 4.6,
-  },
-  {
-    id: "2048",
-    title: "2048",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49x5.webp", // Official 2048 cover
-    category: ["Puzzle", "Logic", "Numbers"],
-    developer: "Estoty Entertainment",
-    publisher: "Estoty Entertainment",
-    description: "Join the numbers and get to the 2048 tile in this addictive puzzle game.",
-    platform: ["Android", "iOS"],
-    size: "25 MB",
-    downloads: "100M+",
-    rating: 4.4,
-  },
-  {
-    id: "homescapes",
-    title: "Homescapes",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp", // Official Homescapes cover
-    category: ["Puzzle", "Match-3", "Decoration"],
-    developer: "Playrix",
-    publisher: "Playrix",
-    description: "Help Austin the butler renovate the mansion by solving match-3 puzzles.",
-    platform: ["Android", "iOS"],
+    image: "/placeholder.svg?height=300&width=400&text=Candy+Crush+Saga",
+    description: "Switch and match Candies in this tasty puzzle adventure to progress to the next level.",
+    category: "puzzle",
+    genre: "Puzzle",
+    rating: 4.3,
+    reviews: 8500000,
+    releaseDate: "2012-04-12",
+    developer: "King",
+    publisher: "King",
+    tags: ["Puzzle", "Match-3", "Casual", "Free-to-Play"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
     size: "156 MB",
-    downloads: "100M+",
-    rating: 4.3,
+    version: "1.245.0.1",
+    compatibility: "iOS 10.0+ / Android 4.4+",
+    iosAppId: "553834731",
+    androidPackage: "com.king.candycrushsaga",
   },
   {
-    id: "gardenscapes",
-    title: "Gardenscapes",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.webp", // Official Gardenscapes cover
-    category: ["Puzzle", "Match-3", "Decoration"],
-    developer: "Playrix",
-    publisher: "Playrix",
-    description: "Restore a beautiful garden to its former glory by completing match-3 levels.",
-    platform: ["Android", "iOS"],
-    size: "162 MB",
-    downloads: "100M+",
-    rating: 4.3,
-  },
-  {
-    id: "clash-royale",
-    title: "Clash Royale",
-    price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp", // Official Clash Royale cover
-    category: ["Strategy", "Card", "Real-time"],
-    developer: "Supercell",
-    publisher: "Supercell",
-    description: "Collect and upgrade dozens of cards featuring Clash of Clans troops, spells and defenses.",
-    platform: ["Android", "iOS"],
-    size: "134 MB",
-    downloads: "100M+",
+    id: "among-us",
+    title: "Among Us",
+    price: 4.99,
+    originalPrice: 4.99,
+    image: "/placeholder.svg?height=300&width=400&text=Among+Us",
+    description: "Play with 4-15 players online or via local WiFi as you attempt to prep your spaceship for departure.",
+    category: "social",
+    genre: "Social Deduction",
     rating: 4.2,
+    reviews: 1200000,
+    releaseDate: "2018-06-15",
+    developer: "InnerSloth LLC",
+    publisher: "InnerSloth LLC",
+    tags: ["Multiplayer", "Social Deduction", "Party", "Cross-Platform"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
+    size: "250 MB",
+    version: "2023.11.28",
+    compatibility: "iOS 10.0+ / Android 4.2+",
+    iosAppId: "1351168404",
+    androidPackage: "com.innersloth.spacemafia",
   },
   {
-    id: "brawl-stars",
-    title: "Brawl Stars",
+    id: "genshin-impact",
+    title: "Genshin Impact",
     price: 0,
-    image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mjs.webp", // Official Brawl Stars cover
-    category: ["Action", "MOBA", "Shooter"],
-    developer: "Supercell",
-    publisher: "Supercell",
-    description: "Fast-paced 3v3 multiplayer battles with unique characters and abilities.",
-    platform: ["Android", "iOS"],
-    size: "158 MB",
-    downloads: "100M+",
-    rating: 4.3,
+    image: "/placeholder.svg?height=300&width=400&text=Genshin+Impact",
+    description: "Step into Teyvat, a vast world teeming with life and flowing with elemental energy.",
+    category: "rpg",
+    genre: "Action RPG",
+    rating: 4.6,
+    reviews: 3200000,
+    releaseDate: "2020-09-28",
+    developer: "miHoYo",
+    publisher: "miHoYo",
+    tags: ["Open World", "RPG", "Gacha", "Free-to-Play"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
+    size: "18.5 GB",
+    version: "4.2.0",
+    compatibility: "iOS 9.0+ / Android 7.0+",
+    iosAppId: "1517783697",
+    androidPackage: "com.miHoYo.GenshinImpact",
+  },
+  {
+    id: "call-of-duty-mobile",
+    title: "Call of Duty: Mobile",
+    price: 0,
+    image: "/placeholder.svg?height=300&width=400&text=Call+of+Duty+Mobile",
+    description: "Play iconic multiplayer maps and modes anytime, anywhere.",
+    category: "action",
+    genre: "First-Person Shooter",
+    rating: 4.4,
+    reviews: 5800000,
+    releaseDate: "2019-10-01",
+    developer: "TiMi Studio Group",
+    publisher: "Activision Publishing",
+    tags: ["FPS", "Battle Royale", "Multiplayer", "Free-to-Play"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
+    size: "3.5 GB",
+    version: "1.0.36",
+    compatibility: "iOS 9.0+ / Android 5.1+",
+    iosAppId: "1287282214",
+    androidPackage: "com.activision.callofduty.shooter",
+  },
+  {
+    id: "minecraft-mobile",
+    title: "Minecraft",
+    price: 6.99,
+    originalPrice: 6.99,
+    image: "/placeholder.svg?height=300&width=400&text=Minecraft+Mobile",
+    description: "Explore infinite worlds and build everything from the simplest of homes to the grandest of castles.",
+    category: "sandbox",
+    genre: "Sandbox",
+    rating: 4.5,
+    reviews: 2100000,
+    releaseDate: "2011-11-17",
+    developer: "Mojang Studios",
+    publisher: "Microsoft Corporation",
+    tags: ["Sandbox", "Creative", "Survival", "Cross-Platform"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
+    size: "1.2 GB",
+    version: "1.20.40",
+    compatibility: "iOS 10.0+ / Android 4.2+",
+    iosAppId: "479516143",
+    androidPackage: "com.mojang.minecraftpe",
+  },
+  {
+    id: "subway-surfers",
+    title: "Subway Surfers",
+    price: 0,
+    image: "/placeholder.svg?height=300&width=400&text=Subway+Surfers",
+    description:
+      "DASH as fast as you can! DODGE the oncoming trains! Help Jake, Tricky & Fresh escape from the grumpy Inspector and his dog.",
+    category: "arcade",
+    genre: "Endless Runner",
+    rating: 4.4,
+    reviews: 12000000,
+    releaseDate: "2012-05-24",
+    developer: "SYBO",
+    publisher: "SYBO",
+    tags: ["Endless Runner", "Arcade", "Casual", "Free-to-Play"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
+    size: "180 MB",
+    version: "3.17.1",
+    compatibility: "iOS 9.0+ / Android 4.4+",
+    iosAppId: "512939461",
+    androidPackage: "com.kiloo.subwaysurf",
   },
 ]
 
-export function getMobileGamesByCategory(category: string): MobileGame[] {
-  return mobileGamesDatabase.filter((game) => game.category.some((cat) => cat.toLowerCase() === category.toLowerCase()))
+// Required exports
+export function getAllMobileGames(): MobileGame[] {
+  return mobileGames
 }
 
-export function getAllMobileGames(): MobileGame[] {
-  return mobileGamesDatabase
+export function getFeaturedMobileGames(): MobileGame[] {
+  return mobileGames.slice(0, 4)
+}
+
+export function getDealsMobileGames(): MobileGame[] {
+  return mobileGames.filter((game) => game.discount && game.discount > 0)
+}
+
+export function getNewMobileReleases(): MobileGame[] {
+  return mobileGames.sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()).slice(0, 8)
+}
+
+export function getMobileGamesByCategory(category: string): MobileGame[] {
+  return mobileGames.filter((game) => game.category.toLowerCase() === category.toLowerCase())
+}
+
+export function searchMobileGames(query: string): MobileGame[] {
+  const lowercaseQuery = query.toLowerCase()
+  return mobileGames.filter(
+    (game) =>
+      game.title.toLowerCase().includes(lowercaseQuery) ||
+      game.description.toLowerCase().includes(lowercaseQuery) ||
+      game.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery)) ||
+      game.genre.toLowerCase().includes(lowercaseQuery),
+  )
 }
 
 export function getMobileGameById(id: string): MobileGame | undefined {
-  return mobileGamesDatabase.find((game) => game.id === id)
+  return mobileGames.find((game) => game.id === id)
 }
 
-export function getPopularMobileGames(): MobileGame[] {
-  return mobileGamesDatabase
-    .filter((game) => Number.parseInt(game.downloads.replace(/[^\d]/g, "")) >= 100)
-    .sort((a, b) => b.rating - a.rating)
-}
-
-export function getFreeMobileGames(): MobileGame[] {
-  return mobileGamesDatabase.filter((game) => game.price === 0)
-}
-
-// Export mobile games array with the expected name for deployment
-export const mobileGames = mobileGamesDatabase
+export const mobileCategories = [
+  { id: "action", name: "Action", count: mobileGames.filter((g) => g.category === "action").length },
+  { id: "rpg", name: "RPG", count: mobileGames.filter((g) => g.category === "rpg").length },
+  { id: "strategy", name: "Strategy", count: mobileGames.filter((g) => g.category === "strategy").length },
+  { id: "puzzle", name: "Puzzle", count: mobileGames.filter((g) => g.category === "puzzle").length },
+  { id: "arcade", name: "Arcade", count: mobileGames.filter((g) => g.category === "arcade").length },
+  { id: "adventure", name: "Adventure", count: mobileGames.filter((g) => g.category === "adventure").length },
+  { id: "social", name: "Social", count: mobileGames.filter((g) => g.category === "social").length },
+  { id: "sandbox", name: "Sandbox", count: mobileGames.filter((g) => g.category === "sandbox").length },
+]

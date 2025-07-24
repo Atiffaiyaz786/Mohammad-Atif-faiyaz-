@@ -1,145 +1,113 @@
 import { Suspense } from "react"
 import { GameCard } from "@/components/game-card"
 import { MobileGameCard } from "@/components/mobile-game-card"
-import { Pagination } from "@/components/pagination"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { games } from "@/lib/games-database"
-import { mobileGames } from "@/lib/mobile-games-database"
+import { searchGames } from "@/lib/games-database"
+import { searchMobileGames } from "@/lib/mobile-games-database"
+import type { Metadata } from "next"
 
-// Create a separate component for the search results
-function SearchResults({ searchParams }: { searchParams: { q?: string; page?: string } }) {
-  const query = searchParams.q?.toLowerCase() || ""
-  const currentPage = Number(searchParams.page) || 1
-  const gamesPerPage = 12
+export const metadata: Metadata = {
+  title: "Search Games | PlayJunction",
+  description: "Search for PC and mobile games at affordable prices on PlayJunction.",
+}
 
-  const filteredPcGames = games.filter(
-    (game) =>
-      game.title.toLowerCase().includes(query) ||
-      game.description.toLowerCase().includes(query) ||
-      game.genre.some((genre) => genre.toLowerCase().includes(query)),
-  )
+interface SearchResultsProps {
+  searchParams: { q?: string; type?: string }
+}
 
-  const filteredMobileGames = mobileGames.filter(
-    (game) =>
-      game.title.toLowerCase().includes(query) ||
-      game.description.toLowerCase().includes(query) ||
-      game.genres.some((genre) => genre.toLowerCase().includes(query)),
-  )
-
-  const totalResults = filteredPcGames.length + filteredMobileGames.length
-
-  // Paginate PC games
-  const totalPcPages = Math.ceil(filteredPcGames.length / gamesPerPage)
-  const paginatedPcGames = filteredPcGames.slice((currentPage - 1) * gamesPerPage, currentPage * gamesPerPage)
-
-  // Paginate mobile games
-  const totalMobilePages = Math.ceil(filteredMobileGames.length / gamesPerPage)
-  const paginatedMobileGames = filteredMobileGames.slice((currentPage - 1) * gamesPerPage, currentPage * gamesPerPage)
+function SearchResults({ searchParams }: SearchResultsProps) {
+  const query = searchParams.q || ""
+  const type = searchParams.type || "all"
 
   if (!query) {
     return (
-      <div className="text-center py-16">
-        <h2 className="text-2xl font-semibold mb-4">Start Your Search</h2>
-        <p className="text-gray-400">Enter a game title, genre, or keyword to find your next favorite game.</p>
+      <div className="container mx-auto px-4 py-8">
+        <div className="text-center">
+          <h1 className="text-3xl font-bold mb-4 text-white">Search Games</h1>
+          <p className="text-gray-400">Enter a search term to find games</p>
+        </div>
       </div>
     )
   }
 
-  return (
-    <>
-      <h1 className="text-3xl font-bold mb-2">Search Results</h1>
-      <p className="text-gray-400 mb-6">
-        {totalResults} results found for "{query}"
-      </p>
+  const pcGames = type === "all" || type === "pc" ? searchGames(query) : []
+  const mobileGames = type === "all" || type === "mobile" ? searchMobileGames(query) : []
+  const totalResults = pcGames.length + mobileGames.length
 
-      <Tabs defaultValue="pc" className="w-full">
-        <TabsList className="mb-6">
-          <TabsTrigger value="pc">PC Games ({filteredPcGames.length})</TabsTrigger>
-          <TabsTrigger value="mobile">Mobile Games ({filteredMobileGames.length})</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="pc">
-          {filteredPcGames.length > 0 ? (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {paginatedPcGames.map((game) => (
-                  <GameCard key={game.id} game={game} />
-                ))}
-              </div>
-              {totalPcPages > 1 && (
-                <div className="mt-8">
-                  <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalPcPages}
-                    baseUrl={`/search?q=${encodeURIComponent(query)}&page=`}
-                  />
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="text-center py-8">
-              <p className="text-xl">No PC games found matching "{query}"</p>
-            </div>
-          )}
-        </TabsContent>
-
-        <TabsContent value="mobile">
-          {filteredMobileGames.length > 0 ? (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {paginatedMobileGames.map((game) => (
-                  <MobileGameCard key={game.id} game={game} />
-                ))}
-              </div>
-              {totalMobilePages > 1 && (
-                <div className="mt-8">
-                  <Pagination
-                    currentPage={currentPage}
-                    totalPages={totalMobilePages}
-                    baseUrl={`/search?q=${encodeURIComponent(query)}&page=`}
-                  />
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="text-center py-8">
-              <p className="text-xl">No mobile games found matching "{query}"</p>
-            </div>
-          )}
-        </TabsContent>
-      </Tabs>
-    </>
-  )
-}
-
-// Loading component for Suspense fallback
-function SearchLoading() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="animate-pulse">
-        <div className="h-8 bg-gray-300 rounded w-1/3 mb-4"></div>
-        <div className="h-4 bg-gray-300 rounded w-1/4 mb-8"></div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {[...Array(8)].map((_, i) => (
-            <div key={i} className="bg-gray-300 rounded-lg h-64"></div>
-          ))}
-        </div>
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2 text-white">Search Results for "{query}"</h1>
+        <p className="text-gray-400">
+          Found {totalResults} {totalResults === 1 ? "game" : "games"}
+        </p>
       </div>
+
+      {totalResults === 0 ? (
+        <div className="text-center py-12">
+          <p className="text-gray-400 text-lg mb-4">No games found matching your search.</p>
+          <p className="text-gray-500">Try different keywords or browse our categories.</p>
+        </div>
+      ) : (
+        <div className="space-y-8">
+          {pcGames.length > 0 && (
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-white">PC Games ({pcGames.length})</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {pcGames.map((game) => (
+                  <GameCard
+                    key={game.id}
+                    id={game.id}
+                    title={game.title}
+                    price={game.price}
+                    originalPrice={game.originalPrice}
+                    image={game.image}
+                    discount={game.discount}
+                    rating={game.rating}
+                    reviews={game.reviews}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {mobileGames.length > 0 && (
+            <section>
+              <h2 className="text-2xl font-bold mb-4 text-white">Mobile Games ({mobileGames.length})</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {mobileGames.map((game) => (
+                  <MobileGameCard
+                    key={game.id}
+                    id={game.id}
+                    title={game.title}
+                    price={game.price}
+                    originalPrice={game.originalPrice}
+                    image={game.image}
+                    discount={game.discount}
+                    rating={game.rating}
+                    downloads={game.downloads}
+                    playStoreId={game.playStoreId}
+                    appStoreId={game.appStoreId}
+                  />
+                ))}
+              </div>
+            </section>
+          )}
+        </div>
+      )}
     </div>
   )
 }
 
-// Main page component
-export default function SearchPage({
-  searchParams,
-}: {
-  searchParams: { q?: string; page?: string }
-}) {
+export default function SearchPage({ searchParams }: SearchResultsProps) {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Suspense fallback={<SearchLoading />}>
-        <SearchResults searchParams={searchParams} />
-      </Suspense>
-    </div>
+    <Suspense
+      fallback={
+        <div className="container mx-auto px-4 py-8">
+          <div className="text-white">Loading search results...</div>
+        </div>
+      }
+    >
+      <SearchResults searchParams={searchParams} />
+    </Suspense>
   )
 }

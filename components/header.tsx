@@ -3,20 +3,13 @@
 import type React from "react"
 
 import { useState } from "react"
-import { useRouter } from "next/navigation"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { Search, Menu, ShoppingCart, User, Gamepad2 } from "lucide-react"
+import { CurrencySelector } from "@/components/currency-selector"
+import { Search, Menu, ShoppingCart, User } from "lucide-react"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -31,173 +24,86 @@ export function Header() {
     }
   }
 
+  const navigationItems = [
+    { href: "/games", label: "All Games" },
+    { href: "/deals", label: "Deals" },
+    { href: "/new-releases", label: "New Releases" },
+    { href: "/mobile-games", label: "Mobile Games" },
+  ]
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between px-4">
+    <header className="sticky top-0 z-50 w-full border-b border-gray-800 bg-gray-900/95 backdrop-blur supports-[backdrop-filter]:bg-gray-900/60">
+      <div className="container mx-auto flex h-16 items-center px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <Gamepad2 className="h-8 w-8 text-purple-500" />
-          <span className="text-xl font-bold">PlayJunction</span>
+          <div className="h-8 w-8 rounded bg-purple-600 flex items-center justify-center">
+            <span className="text-white font-bold text-sm">PJ</span>
+          </div>
+          <span className="font-bold text-xl text-white">PlayJunction</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>Games</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <div className="grid gap-3 p-6 w-[400px]">
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href="/games"
-                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                    >
-                      <div className="text-sm font-medium leading-none">All PC Games</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Browse our complete collection of PC games
-                      </p>
-                    </Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href="/browse/action"
-                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                    >
-                      <div className="text-sm font-medium leading-none">Action Games</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        High-octane action and adventure games
-                      </p>
-                    </Link>
-                  </NavigationMenuLink>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href="/browse/rpg"
-                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                    >
-                      <div className="text-sm font-medium leading-none">RPG Games</div>
-                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        Role-playing games and adventures
-                      </p>
-                    </Link>
-                  </NavigationMenuLink>
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link
-                  href="/mobile-games"
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                >
-                  Mobile Games
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link
-                  href="/deals"
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                >
-                  Deals
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link
-                  href="/new-releases"
-                  className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50"
-                >
-                  New Releases
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+        <nav className="hidden md:flex items-center space-x-6 ml-8">
+          {navigationItems.map((item) => (
+            <Link key={item.href} href={item.href} className="text-gray-300 hover:text-white transition-colors">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearch} className="hidden md:flex items-center space-x-2 flex-1 max-w-sm mx-4">
-          <div className="relative flex-1">
-            <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
+        <div className="flex-1 max-w-sm mx-4">
+          <form onSubmit={handleSearch} className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
             <Input
+              type="search"
               placeholder="Search games..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-8"
+              className="pl-10 bg-gray-800 border-gray-700 text-white placeholder:text-gray-400"
             />
-          </div>
-          <Button type="submit" size="sm">
-            Search
-          </Button>
-        </form>
+          </form>
+        </div>
 
-        {/* User Actions */}
-        <div className="flex items-center space-x-2">
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="/cart">
-              <ShoppingCart className="h-5 w-5" />
+        {/* Right Side Actions */}
+        <div className="flex items-center space-x-4">
+          <CurrencySelector />
+
+          <Link href="/cart">
+            <Button variant="ghost" size="sm" className="text-white hover:bg-gray-800">
+              <ShoppingCart className="h-4 w-4" />
               <span className="sr-only">Shopping Cart</span>
-            </Link>
-          </Button>
-          <Button variant="ghost" size="icon" asChild>
-            <Link href="/account">
-              <User className="h-5 w-5" />
+            </Button>
+          </Link>
+
+          <Link href="/account">
+            <Button variant="ghost" size="sm" className="text-white hover:bg-gray-800">
+              <User className="h-4 w-4" />
               <span className="sr-only">Account</span>
-            </Link>
-          </Button>
+            </Button>
+          </Link>
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
-                <span className="sr-only">Toggle menu</span>
+              <Button variant="ghost" size="sm" className="md:hidden text-white">
+                <Menu className="h-4 w-4" />
+                <span className="sr-only">Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col space-y-4 mt-4">
-                {/* Mobile Search */}
-                <form onSubmit={handleSearch} className="flex items-center space-x-2">
-                  <div className="relative flex-1">
-                    <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                    <Input
-                      placeholder="Search games..."
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-8"
-                    />
-                  </div>
-                  <Button type="submit" size="sm">
-                    Search
-                  </Button>
-                </form>
-
-                {/* Mobile Navigation Links */}
-                <div className="flex flex-col space-y-2">
-                  <Link href="/games" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                    All PC Games
+            <SheetContent side="right" className="bg-gray-900 border-gray-800">
+              <nav className="flex flex-col space-y-4 mt-8">
+                {navigationItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-gray-300 hover:text-white transition-colors py-2"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
                   </Link>
-                  <Link href="/mobile-games" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                    Mobile Games
-                  </Link>
-                  <Link href="/deals" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                    Deals
-                  </Link>
-                  <Link href="/new-releases" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                    New Releases
-                  </Link>
-                  <Link href="/browse/action" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                    Action Games
-                  </Link>
-                  <Link href="/browse/rpg" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                    RPG Games
-                  </Link>
-                  <Link href="/browse/strategy" className="text-lg font-medium" onClick={() => setIsOpen(false)}>
-                    Strategy Games
-                  </Link>
-                </div>
-              </div>
+                ))}
+              </nav>
             </SheetContent>
           </Sheet>
         </div>

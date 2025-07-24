@@ -1,5 +1,3 @@
-"use client"
-
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
@@ -13,13 +11,6 @@ export default function OfflinePage() {
       <div className="space-y-4">
         <Button asChild className="bg-purple-600 hover:bg-purple-700 text-white">
           <Link href="/">Go to Homepage</Link>
-        </Button>
-        <Button
-          variant="outline"
-          className="block border-purple-600 text-purple-500 hover:bg-purple-950"
-          onClick={() => window.location.reload()}
-        >
-          Try Again
         </Button>
       </div>
     </div>
