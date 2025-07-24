@@ -7,7 +7,7 @@ export interface MobileGame {
   image: string
   description: string
   category: string
-  genre: string
+  genre: string[]
   rating: number
   reviews: number
   releaseDate: string
@@ -16,10 +16,9 @@ export interface MobileGame {
   tags: string[]
   screenshots: string[]
   size: string
-  version: string
-  compatibility: string
-  iosAppId?: string
-  androidPackage?: string
+  androidId?: string
+  iosId?: string
+  features: string[]
 }
 
 export const mobileGames: MobileGame[] = [
@@ -28,76 +27,72 @@ export const mobileGames: MobileGame[] = [
     title: "Clash of Clans",
     price: 0,
     image: "/placeholder.svg?height=300&width=400&text=Clash+of+Clans",
-    description:
-      "Join millions of players worldwide as you build your village, raise a clan, and compete in epic Clan Wars!",
+    description: "Join millions of players worldwide as you build your village, raise a clan, and compete.",
     category: "strategy",
-    genre: "Strategy",
+    genre: ["Strategy", "Tower Defense", "Multiplayer"],
     rating: 4.5,
-    reviews: 2500000,
+    reviews: 125000,
     releaseDate: "2012-08-02",
     developer: "Supercell",
     publisher: "Supercell",
-    tags: ["Strategy", "Multiplayer", "Base Building", "Free-to-Play"],
+    tags: ["Strategy", "Base Building", "Multiplayer", "Free-to-Play"],
     screenshots: [
       "/placeholder.svg?height=400&width=600&text=Screenshot+1",
       "/placeholder.svg?height=400&width=600&text=Screenshot+2",
       "/placeholder.svg?height=400&width=600&text=Screenshot+3",
     ],
     size: "285 MB",
-    version: "15.83.27",
-    compatibility: "iOS 9.0+ / Android 4.1+",
-    iosAppId: "529479190",
-    androidPackage: "com.supercell.clashofclans",
+    androidId: "com.supercell.clashofclans",
+    iosId: "529479190",
+    features: ["Online multiplayer", "In-app purchases", "Cloud save"],
   },
   {
     id: "pokemon-go",
     title: "Pokémon GO",
     price: 0,
     image: "/placeholder.svg?height=300&width=400&text=Pokemon+GO",
-    description: "Join Trainers across the globe who are discovering Pokémon as they explore the world around them.",
+    description: "Get on your feet and step into the world of Pokémon GO!",
     category: "adventure",
-    genre: "Adventure",
-    rating: 4.1,
-    reviews: 15000000,
+    genre: ["Adventure", "Augmented Reality", "Collection"],
+    rating: 4.2,
+    reviews: 89000,
     releaseDate: "2016-07-06",
     developer: "Niantic",
     publisher: "Niantic",
-    tags: ["AR", "Adventure", "Location-Based", "Free-to-Play"],
+    tags: ["AR", "GPS", "Collection", "Social"],
     screenshots: [
       "/placeholder.svg?height=400&width=600&text=Screenshot+1",
       "/placeholder.svg?height=400&width=600&text=Screenshot+2",
       "/placeholder.svg?height=400&width=600&text=Screenshot+3",
     ],
     size: "312 MB",
-    version: "0.291.0",
-    compatibility: "iOS 12.0+ / Android 6.0+",
-    iosAppId: "1094591345",
-    androidPackage: "com.nianticlabs.pokemongo",
+    androidId: "com.nianticlabs.pokemongo",
+    iosId: "1094591345",
+    features: ["Location-based", "AR camera", "Social features"],
   },
   {
     id: "candy-crush-saga",
     title: "Candy Crush Saga",
     price: 0,
     image: "/placeholder.svg?height=300&width=400&text=Candy+Crush+Saga",
-    description: "Switch and match Candies in this tasty puzzle adventure to progress to the next level.",
+    description: "The sweetest match 3 puzzle game! Switch and match candies to advance through levels.",
     category: "puzzle",
-    genre: "Puzzle",
+    genre: ["Puzzle", "Match-3", "Casual"],
     rating: 4.3,
-    reviews: 8500000,
+    reviews: 156000,
     releaseDate: "2012-04-12",
     developer: "King",
     publisher: "King",
-    tags: ["Puzzle", "Match-3", "Casual", "Free-to-Play"],
+    tags: ["Match-3", "Puzzle", "Casual", "Colorful"],
     screenshots: [
       "/placeholder.svg?height=400&width=600&text=Screenshot+1",
       "/placeholder.svg?height=400&width=600&text=Screenshot+2",
       "/placeholder.svg?height=400&width=600&text=Screenshot+3",
     ],
     size: "156 MB",
-    version: "1.245.0.1",
-    compatibility: "iOS 10.0+ / Android 4.4+",
-    iosAppId: "553834731",
-    androidPackage: "com.king.candycrushsaga",
+    androidId: "com.king.candycrushsaga",
+    iosId: "553834731",
+    features: ["Thousands of levels", "Social features", "Daily rewards"],
   },
   {
     id: "among-us",
@@ -105,25 +100,73 @@ export const mobileGames: MobileGame[] = [
     price: 4.99,
     originalPrice: 4.99,
     image: "/placeholder.svg?height=300&width=400&text=Among+Us",
-    description: "Play with 4-15 players online or via local WiFi as you attempt to prep your spaceship for departure.",
+    description:
+      "Play online or over local WiFi with 4-15 players as you attempt to prep your spaceship for departure.",
     category: "social",
-    genre: "Social Deduction",
-    rating: 4.2,
-    reviews: 1200000,
+    genre: ["Social Deduction", "Multiplayer", "Party"],
+    rating: 4.1,
+    reviews: 78000,
     releaseDate: "2018-06-15",
-    developer: "InnerSloth LLC",
-    publisher: "InnerSloth LLC",
-    tags: ["Multiplayer", "Social Deduction", "Party", "Cross-Platform"],
+    developer: "InnerSloth",
+    publisher: "InnerSloth",
+    tags: ["Multiplayer", "Social", "Deduction", "Party"],
     screenshots: [
       "/placeholder.svg?height=400&width=600&text=Screenshot+1",
       "/placeholder.svg?height=400&width=600&text=Screenshot+2",
       "/placeholder.svg?height=400&width=600&text=Screenshot+3",
     ],
-    size: "250 MB",
-    version: "2023.11.28",
-    compatibility: "iOS 10.0+ / Android 4.2+",
-    iosAppId: "1351168404",
-    androidPackage: "com.innersloth.spacemafia",
+    size: "89 MB",
+    androidId: "com.innersloth.spacemafia",
+    iosId: "1351168404",
+    features: ["Online multiplayer", "Local WiFi", "Cross-platform"],
+  },
+  {
+    id: "subway-surfers",
+    title: "Subway Surfers",
+    price: 0,
+    image: "/placeholder.svg?height=300&width=400&text=Subway+Surfers",
+    description: "DASH as fast as you can! DODGE the oncoming trains!",
+    category: "arcade",
+    genre: ["Arcade", "Endless Runner", "Action"],
+    rating: 4.4,
+    reviews: 234000,
+    releaseDate: "2012-05-24",
+    developer: "SYBO Games",
+    publisher: "SYBO Games",
+    tags: ["Endless Runner", "Arcade", "Colorful", "Fast-paced"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
+    size: "178 MB",
+    androidId: "com.kiloo.subwaysurf",
+    iosId: "512939461",
+    features: ["Endless gameplay", "Power-ups", "Character customization"],
+  },
+  {
+    id: "call-of-duty-mobile",
+    title: "Call of Duty: Mobile",
+    price: 0,
+    image: "/placeholder.svg?height=300&width=400&text=COD+Mobile",
+    description: "The definitive Call of Duty mobile experience.",
+    category: "action",
+    genre: ["First-Person Shooter", "Battle Royale", "Multiplayer"],
+    rating: 4.2,
+    reviews: 167000,
+    releaseDate: "2019-10-01",
+    developer: "TiMi Studio Group",
+    publisher: "Activision Publishing",
+    tags: ["FPS", "Battle Royale", "Multiplayer", "Competitive"],
+    screenshots: [
+      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
+      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
+    ],
+    size: "1.8 GB",
+    androidId: "com.activision.callofduty.shooter",
+    iosId: "1287282214",
+    features: ["Battle Royale", "Multiplayer modes", "Controller support"],
   },
   {
     id: "genshin-impact",
@@ -132,48 +175,22 @@ export const mobileGames: MobileGame[] = [
     image: "/placeholder.svg?height=300&width=400&text=Genshin+Impact",
     description: "Step into Teyvat, a vast world teeming with life and flowing with elemental energy.",
     category: "rpg",
-    genre: "Action RPG",
+    genre: ["Action RPG", "Open World", "Gacha"],
     rating: 4.6,
-    reviews: 3200000,
+    reviews: 145000,
     releaseDate: "2020-09-28",
     developer: "miHoYo",
     publisher: "miHoYo",
-    tags: ["Open World", "RPG", "Gacha", "Free-to-Play"],
+    tags: ["Open World", "RPG", "Anime", "Gacha"],
     screenshots: [
       "/placeholder.svg?height=400&width=600&text=Screenshot+1",
       "/placeholder.svg?height=400&width=600&text=Screenshot+2",
       "/placeholder.svg?height=400&width=600&text=Screenshot+3",
     ],
-    size: "18.5 GB",
-    version: "4.2.0",
-    compatibility: "iOS 9.0+ / Android 7.0+",
-    iosAppId: "1517783697",
-    androidPackage: "com.miHoYo.GenshinImpact",
-  },
-  {
-    id: "call-of-duty-mobile",
-    title: "Call of Duty: Mobile",
-    price: 0,
-    image: "/placeholder.svg?height=300&width=400&text=Call+of+Duty+Mobile",
-    description: "Play iconic multiplayer maps and modes anytime, anywhere.",
-    category: "action",
-    genre: "First-Person Shooter",
-    rating: 4.4,
-    reviews: 5800000,
-    releaseDate: "2019-10-01",
-    developer: "TiMi Studio Group",
-    publisher: "Activision Publishing",
-    tags: ["FPS", "Battle Royale", "Multiplayer", "Free-to-Play"],
-    screenshots: [
-      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
-      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
-      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
-    ],
-    size: "3.5 GB",
-    version: "1.0.36",
-    compatibility: "iOS 9.0+ / Android 5.1+",
-    iosAppId: "1287282214",
-    androidPackage: "com.activision.callofduty.shooter",
+    size: "4.2 GB",
+    androidId: "com.miHoYo.GenshinImpact",
+    iosId: "1517783697",
+    features: ["Open world exploration", "Co-op multiplayer", "Cross-platform"],
   },
   {
     id: "minecraft-mobile",
@@ -183,67 +200,32 @@ export const mobileGames: MobileGame[] = [
     image: "/placeholder.svg?height=300&width=400&text=Minecraft+Mobile",
     description: "Explore infinite worlds and build everything from the simplest of homes to the grandest of castles.",
     category: "sandbox",
-    genre: "Sandbox",
+    genre: ["Sandbox", "Survival", "Creative"],
     rating: 4.5,
-    reviews: 2100000,
+    reviews: 198000,
     releaseDate: "2011-11-17",
     developer: "Mojang Studios",
     publisher: "Microsoft Corporation",
-    tags: ["Sandbox", "Creative", "Survival", "Cross-Platform"],
+    tags: ["Sandbox", "Building", "Survival", "Creative"],
     screenshots: [
       "/placeholder.svg?height=400&width=600&text=Screenshot+1",
       "/placeholder.svg?height=400&width=600&text=Screenshot+2",
       "/placeholder.svg?height=400&width=600&text=Screenshot+3",
     ],
-    size: "1.2 GB",
-    version: "1.20.40",
-    compatibility: "iOS 10.0+ / Android 4.2+",
-    iosAppId: "479516143",
-    androidPackage: "com.mojang.minecraftpe",
-  },
-  {
-    id: "subway-surfers",
-    title: "Subway Surfers",
-    price: 0,
-    image: "/placeholder.svg?height=300&width=400&text=Subway+Surfers",
-    description:
-      "DASH as fast as you can! DODGE the oncoming trains! Help Jake, Tricky & Fresh escape from the grumpy Inspector and his dog.",
-    category: "arcade",
-    genre: "Endless Runner",
-    rating: 4.4,
-    reviews: 12000000,
-    releaseDate: "2012-05-24",
-    developer: "SYBO",
-    publisher: "SYBO",
-    tags: ["Endless Runner", "Arcade", "Casual", "Free-to-Play"],
-    screenshots: [
-      "/placeholder.svg?height=400&width=600&text=Screenshot+1",
-      "/placeholder.svg?height=400&width=600&text=Screenshot+2",
-      "/placeholder.svg?height=400&width=600&text=Screenshot+3",
-    ],
-    size: "180 MB",
-    version: "3.17.1",
-    compatibility: "iOS 9.0+ / Android 4.4+",
-    iosAppId: "512939461",
-    androidPackage: "com.kiloo.subwaysurf",
+    size: "1.1 GB",
+    androidId: "com.mojang.minecraftpe",
+    iosId: "479516143",
+    features: ["Infinite worlds", "Multiplayer", "Cross-platform"],
   },
 ]
 
-// Required exports
+// Required exports - ALL FUNCTIONS MUST BE PRESENT
 export function getAllMobileGames(): MobileGame[] {
   return mobileGames
 }
 
 export function getFeaturedMobileGames(): MobileGame[] {
   return mobileGames.slice(0, 4)
-}
-
-export function getDealsMobileGames(): MobileGame[] {
-  return mobileGames.filter((game) => game.discount && game.discount > 0)
-}
-
-export function getNewMobileReleases(): MobileGame[] {
-  return mobileGames.sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()).slice(0, 8)
 }
 
 export function getMobileGamesByCategory(category: string): MobileGame[] {
@@ -257,7 +239,7 @@ export function searchMobileGames(query: string): MobileGame[] {
       game.title.toLowerCase().includes(lowercaseQuery) ||
       game.description.toLowerCase().includes(lowercaseQuery) ||
       game.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery)) ||
-      game.genre.toLowerCase().includes(lowercaseQuery),
+      game.genre.some((g) => g.toLowerCase().includes(lowercaseQuery)),
   )
 }
 

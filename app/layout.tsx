@@ -12,10 +12,13 @@ import { Suspense } from "react"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "PlayJunction - Premium PC Games at Affordable Prices",
+  title: {
+    default: "PlayJunction - Affordable PC Games Store",
+    template: "%s | PlayJunction",
+  },
   description:
-    "Discover the best PC games at PlayJunction. Huge discounts on AAA titles, indie games, and classics. Fast delivery, secure payments.",
-  keywords: "PC games, affordable gaming, video game deals, digital games, steam alternatives, gaming marketplace",
+    "Discover the best PC games at unbeatable prices. PlayJunction offers instant digital delivery, secure payments, and 24/7 customer support.",
+  keywords: ["PC games", "digital games", "game store", "affordable games", "instant download", "gaming"],
   authors: [{ name: "PlayJunction Team" }],
   creator: "PlayJunction",
   publisher: "PlayJunction",
@@ -24,22 +27,31 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://playjunction.com"),
+  metadataBase: new URL("https://playjunction.vercel.app"),
   alternates: {
-    canonical: "/",
+    canonical: "https://playjunction.vercel.app",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://playjunction.com",
-    title: "PlayJunction - Premium PC Games at Affordable Prices",
-    description: "Discover the best PC games at PlayJunction. Huge discounts on AAA titles, indie games, and classics.",
+    url: "https://playjunction.vercel.app",
     siteName: "PlayJunction",
+    title: "PlayJunction - Affordable PC Games Store",
+    description: "Discover the best PC games at unbeatable prices with instant digital delivery.",
+    images: [
+      {
+        url: "/placeholder.svg?height=630&width=1200&text=PlayJunction",
+        width: 1200,
+        height: 630,
+        alt: "PlayJunction - Affordable PC Games Store",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PlayJunction - Premium PC Games at Affordable Prices",
-    description: "Discover the best PC games at PlayJunction. Huge discounts on AAA titles, indie games, and classics.",
+    title: "PlayJunction - Affordable PC Games Store",
+    description: "Discover the best PC games at unbeatable prices with instant digital delivery.",
+    images: ["/placeholder.svg?height=630&width=1200&text=PlayJunction"],
     creator: "@playjunction",
   },
   robots: {
@@ -66,17 +78,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#7c3aed" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="PlayJunction" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <Suspense fallback={null}>
             <div className="min-h-screen bg-gray-950 text-white">
               <Header />
-              <main>{children}</main>
+              <main className="flex-1">{children}</main>
               <Footer />
             </div>
-            <Analytics />
-            <ServiceWorkerRegistration />
           </Suspense>
+          <Analytics />
+          <ServiceWorkerRegistration />
         </ThemeProvider>
       </body>
     </html>

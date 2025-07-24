@@ -1,11 +1,11 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
+import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Star, ShoppingCart } from "lucide-react"
+import Link from "next/link"
+import Image from "next/image"
 
 interface GameCardProps {
   id: string
@@ -16,7 +16,7 @@ interface GameCardProps {
   image: string
   rating?: number
   reviews?: number
-  genre?: string
+  genre?: string[]
   tags?: string[]
 }
 
@@ -27,9 +27,9 @@ export function GameCard({
   originalPrice,
   discount,
   image,
-  rating,
-  reviews,
-  genre,
+  rating = 0,
+  reviews = 0,
+  genre = [],
   tags = [],
 }: GameCardProps) {
   return (
@@ -46,56 +46,49 @@ export function GameCard({
         {discount && discount > 0 && (
           <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">-{discount}%</Badge>
         )}
-        {genre && (
-          <Badge variant="secondary" className="absolute top-2 right-2">
-            {genre}
-          </Badge>
-        )}
       </div>
-
       <CardContent className="p-4">
-        <Link href={`/games/${id}`}>
-          <h3 className="font-semibold text-lg mb-2 line-clamp-1 hover:text-blue-600 transition-colors">{title}</h3>
-        </Link>
+        <div className="space-y-2">
+          <Link href={`/games/${id}`}>
+            <h3 className="font-semibold text-lg line-clamp-1 hover:text-blue-600 transition-colors">{title}</h3>
+          </Link>
 
-        {rating && reviews && (
-          <div className="flex items-center gap-1 mb-2">
-            <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-            <span className="text-sm font-medium">{rating}</span>
-            <span className="text-sm text-muted-foreground">({reviews.toLocaleString()})</span>
-          </div>
-        )}
+          {genre.length > 0 && (
+            <div className="flex flex-wrap gap-1">
+              {genre.slice(0, 2).map((g) => (
+                <Badge key={g} variant="secondary" className="text-xs">
+                  {g}
+                </Badge>
+              ))}
+            </div>
+          )}
 
-        {tags && tags.length > 0 && (
-          <div className="flex flex-wrap gap-1 mb-3">
-            {tags.slice(0, 2).map((tag) => (
-              <Badge key={tag} variant="outline" className="text-xs">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-        )}
+          {rating > 0 && reviews > 0 && (
+            <div className="flex items-center gap-1 text-sm text-muted-foreground">
+              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+              <span>{rating.toFixed(1)}</span>
+              <span>({reviews.toLocaleString()} reviews)</span>
+            </div>
+          )}
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {originalPrice && originalPrice > price ? (
-              <>
-                <span className="text-lg font-bold text-green-600">${price.toFixed(2)}</span>
-                <span className="text-sm text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
-              </>
-            ) : (
-              <span className="text-lg font-bold">{price === 0 ? "Free" : `$${price.toFixed(2)}`}</span>
-            )}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              {originalPrice && originalPrice > price ? (
+                <>
+                  <span className="text-lg font-bold text-green-600">${price.toFixed(2)}</span>
+                  <span className="text-sm text-muted-foreground line-through">${originalPrice.toFixed(2)}</span>
+                </>
+              ) : (
+                <span className="text-lg font-bold">{price === 0 ? "Free" : `$${price.toFixed(2)}`}</span>
+              )}
+            </div>
+            <Button size="sm" className="gap-2">
+              <ShoppingCart className="h-4 w-4" />
+              {price === 0 ? "Download" : "Add to Cart"}
+            </Button>
           </div>
         </div>
       </CardContent>
-
-      <CardFooter className="p-4 pt-0">
-        <Button className="w-full" size="sm">
-          <ShoppingCart className="h-4 w-4 mr-2" />
-          {price === 0 ? "Download" : "Add to Cart"}
-        </Button>
-      </CardFooter>
     </Card>
   )
 }

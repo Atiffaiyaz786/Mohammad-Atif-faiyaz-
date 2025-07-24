@@ -7,7 +7,7 @@ export interface Game {
   image: string
   description: string
   category: string
-  genre: string
+  genre: string[]
   rating: number
   reviews: number
   releaseDate: string
@@ -43,7 +43,7 @@ export const games: Game[] = [
     image: "/placeholder.svg?height=300&width=400&text=Cyberpunk+2077",
     description: "An open-world, action-adventure RPG set in the dark future of Night City.",
     category: "action",
-    genre: "RPG",
+    genre: ["RPG", "Action", "Open World"],
     rating: 4.2,
     reviews: 15420,
     releaseDate: "2020-12-10",
@@ -81,7 +81,7 @@ export const games: Game[] = [
     image: "/placeholder.svg?height=300&width=400&text=The+Witcher+3",
     description: "A story-driven open world RPG set in a visually stunning fantasy universe.",
     category: "rpg",
-    genre: "RPG",
+    genre: ["RPG", "Open World", "Fantasy"],
     rating: 4.8,
     reviews: 28750,
     releaseDate: "2015-05-19",
@@ -119,7 +119,7 @@ export const games: Game[] = [
     image: "/placeholder.svg?height=300&width=400&text=Red+Dead+Redemption+2",
     description: "An epic tale of life in America's unforgiving heartland.",
     category: "action",
-    genre: "Action Adventure",
+    genre: ["Action", "Adventure", "Open World"],
     rating: 4.6,
     reviews: 22100,
     releaseDate: "2019-11-05",
@@ -157,7 +157,7 @@ export const games: Game[] = [
     image: "/placeholder.svg?height=300&width=400&text=GTA+V",
     description: "The biggest, most dynamic and most diverse open world ever created.",
     category: "action",
-    genre: "Action Adventure",
+    genre: ["Action", "Adventure", "Open World"],
     rating: 4.4,
     reviews: 45200,
     releaseDate: "2015-04-14",
@@ -193,7 +193,7 @@ export const games: Game[] = [
     image: "/placeholder.svg?height=300&width=400&text=Minecraft",
     description: "A game about placing blocks and going on adventures.",
     category: "sandbox",
-    genre: "Sandbox",
+    genre: ["Sandbox", "Survival", "Creative"],
     rating: 4.7,
     reviews: 38900,
     releaseDate: "2011-11-18",
@@ -232,7 +232,7 @@ export const games: Game[] = [
     description:
       "A fantasy action-RPG adventure set within a world created by Hidetaka Miyazaki and George R.R. Martin.",
     category: "rpg",
-    genre: "Action RPG",
+    genre: ["Action RPG", "Souls-like", "Open World"],
     rating: 4.5,
     reviews: 31200,
     releaseDate: "2022-02-25",
@@ -268,7 +268,7 @@ export const games: Game[] = [
     image: "/placeholder.svg?height=300&width=400&text=Valorant",
     description: "A 5v5 character-based tactical FPS where precise gunplay meets unique agent abilities.",
     category: "action",
-    genre: "First-Person Shooter",
+    genre: ["First-Person Shooter", "Tactical", "Competitive"],
     rating: 4.3,
     reviews: 18500,
     releaseDate: "2020-06-02",
@@ -304,7 +304,7 @@ export const games: Game[] = [
     image: "/placeholder.svg?height=300&width=400&text=Apex+Legends",
     description: "A free-to-play battle royale game where legendary competitors fight for glory, fame, and fortune.",
     category: "action",
-    genre: "Battle Royale",
+    genre: ["Battle Royale", "First-Person Shooter", "Team-Based"],
     rating: 4.1,
     reviews: 25600,
     releaseDate: "2019-02-04",
@@ -335,7 +335,7 @@ export const games: Game[] = [
   },
 ]
 
-// Required exports
+// Required exports - ALL FUNCTIONS MUST BE PRESENT
 export function getAllGames(): Game[] {
   return games
 }
@@ -363,7 +363,7 @@ export function searchGames(query: string): Game[] {
       game.title.toLowerCase().includes(lowercaseQuery) ||
       game.description.toLowerCase().includes(lowercaseQuery) ||
       game.tags.some((tag) => tag.toLowerCase().includes(lowercaseQuery)) ||
-      game.genre.toLowerCase().includes(lowercaseQuery),
+      game.genre.some((g) => g.toLowerCase().includes(lowercaseQuery)),
   )
 }
 

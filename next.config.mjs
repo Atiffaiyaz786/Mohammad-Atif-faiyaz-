@@ -7,37 +7,28 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    domains: ['placeholder.svg', 'images.igdb.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
     unoptimized: true,
-    domains: ['cdn.playjunction.com', 'images.igdb.com', 'play-lh.googleusercontent.com', 'is1-ssl.mzstatic.com'],
   },
   async redirects() {
     return [
+      // Redirect old domain to new domain
       {
-        source: '/game/:slug',
-        destination: '/games/:slug',
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'playjunction.com',
+          },
+        ],
+        destination: 'https://playjunction.vercel.app/:path*',
         permanent: true,
-      },
-      {
-        source: '/mobile/:slug',
-        destination: '/mobile-games/:slug',
-        permanent: true,
-      },
-      {
-        source: '/store',
-        destination: '/games',
-        permanent: true,
-      },
-    ]
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/browse/:category',
-        destination: '/games?category=:category',
-      },
-      {
-        source: '/search/:query',
-        destination: '/games?search=:query',
       },
     ]
   },
