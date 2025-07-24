@@ -22,14 +22,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  const categoryUrls = ["action", "rpg", "strategy", "simulation", "sports", "racing", "adventure", "sandbox"].map(
-    (category) => ({
-      url: `${baseUrl}/browse/${category}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    }),
-  )
+  const categories = [
+    "action",
+    "adventure",
+    "rpg",
+    "strategy",
+    "simulation",
+    "sports",
+    "racing",
+    "shooter",
+    "puzzle",
+    "horror",
+  ]
+  const categoryUrls = categories.map((category) => ({
+    url: `${baseUrl}/browse/${category}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }))
 
   return [
     {
@@ -68,8 +78,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.6,
     },
-    ...categoryUrls,
+    {
+      url: `${baseUrl}/cart`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/account`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/login`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/signup`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.4,
+    },
     ...gameUrls,
     ...mobileGameUrls,
+    ...categoryUrls,
   ]
 }
